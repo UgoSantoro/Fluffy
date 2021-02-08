@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(Color.fromRGBO(86, 0, 232, 1));
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Fluffy',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,13 +22,19 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Fluffy Main Menu'),
+      home: LoginPage(),
+      routes: <String, WidgetBuilder>{
+        '/login': (BuildContext context) => new LoginPage(),
+        '/home': (BuildContext context) => new MyHomePage(),
+        '/detail': (BuildContext context) => new DetailPage()
+        //'/setting': (BuildContext context) => new Screen4()
+      },
     );
   }
 }
@@ -57,15 +63,15 @@ class _MyHomePageState extends State<MyHomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 0: Home',
+      'Index 1: Home',
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: Search',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Index 2: Accounts',
       style: optionStyle,
     ),
   ];
@@ -139,6 +145,42 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.*/
+    );
+  }
+}
+
+class DetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detail Post'),
+      ),
+      body: Center(
+        child: Text('Here\'s your post details'),
+      ),
+    );
+  }
+}
+
+class LoginPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('This is a login page'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Open route'),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => MyHomePage()),
+            );
+          },
+        ),
+      ),
     );
   }
 }
