@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 void main() {
   runApp(MyApp());
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: ProfilePage(),
       routes: <String, WidgetBuilder>{
         '/login': (BuildContext context) => new LoginPage(),
         '/home': (BuildContext context) => new MyHomePage(),
@@ -260,6 +262,117 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ProfilePage extends StatefulWidget {
+  ProfilePage({Key key}) : super(key: key);
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  File imageFile;
+  _openGallery(BuildContext context) async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        imageFile = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+    Navigator.of(context).pop();
+  }
+
+  _openCamera(BuildContext context) async {
+    final picker = ImagePicker();
+
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedFile != null) {
+        imageFile = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+    Navigator.of(context).pop();
+  }
+
+  Future<void> _showChoiceDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Select an Option :"),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  RaisedButton(
+                    onPressed: () {
+                      _openGallery(context);
+                    },
+                    child: Text("Gallery"),
+                  ),
+                  RaisedButton(
+                    onPressed: () {
+                      _openCamera(context);
+                    },
+                    child: Text("Camera"),
+                    /*GestureDetector(
+                    child: Text("Gallery"),
+                    onTap: () {
+                      _openGallery(context);
+                    },
+                  ),
+                  Padding(padding: EdgeInsets.all(8.0)),
+                  GestureDetector(
+                    child: Text("Camera"),
+                    onTap: () {
+                      _openCamera(context);
+                    },*/
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  Widget _ImageProfile() {
+    if (imageFile == null) {
+      return Text("No Image !");
+    } else {
+      return Image.file(imageFile, width: 300, height: 300);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Profile"),
+      ),
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              _ImageProfile(),
+              RaisedButton(
+                onPressed: () {
+                  _showChoiceDialog(context);
+                },
+                child: Text("Select Image"),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
