@@ -1,4 +1,4 @@
-package com.example.fluffy
+package com.fluffy.com
 
 import io.flutter.embedding.android.FlutterActivity
 
