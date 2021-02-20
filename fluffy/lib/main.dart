@@ -324,18 +324,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       _openCamera(context);
                     },
                     child: Text("Camera"),
-                    /*GestureDetector(
-                    child: Text("Gallery"),
-                    onTap: () {
-                      _openGallery(context);
-                    },
-                  ),
-                  Padding(padding: EdgeInsets.all(8.0)),
-                  GestureDetector(
-                    child: Text("Camera"),
-                    onTap: () {
-                      _openCamera(context);
-                    },*/
                   )
                 ],
               ),
@@ -344,12 +332,138 @@ class _ProfilePageState extends State<ProfilePage> {
         });
   }
 
-  Widget _ImageProfile() {
+  Widget _checkimageprofile() {
     if (imageFile == null) {
-      return Text("No Image !");
+      return Container(
+        width: 230,
+        height: 230,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(150),
+          child: Container(
+            color: Color(0xFF5B2B83),
+            child: Icon(
+              Icons.person,
+              size: 200,
+              color: Color(0xFFFFFFFF),
+            ),
+          ),
+        ),
+      );
     } else {
-      return Image.file(imageFile, width: 300, height: 300);
+      return Container(
+        width: 230,
+        height: 230,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(150),
+          child: Image.file(
+            imageFile,
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
     }
+  }
+
+  Widget _photoicon() {
+    return Container(
+      width: 50,
+      height: 50,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(150),
+        child: Container(
+          color: Color(0xFF5B2B83),
+          child: Icon(
+            Icons.photo_camera,
+            color: Color(0xFFFFFFFF),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _imageprofile(BuildContext context) {
+    return Container(
+      width: 250,
+      height: 250,
+      child: Stack(
+        children: <Widget>[
+          Container(
+            width: 250,
+            height: 250,
+            child: CircleAvatar(
+              radius: 100,
+              backgroundColor: Color(0xFFDADADA),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  _checkimageprofile(),
+                ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              width: 65,
+              height: 65,
+              child: CircleAvatar(
+                radius: 100,
+                backgroundColor: Color(0xFFDADADA),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    _photoicon(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _socialnetworkslist(Color itemcolor, Text itemtext) {
+    return Container(
+      padding: new EdgeInsets.all(5.0),
+      child: RaisedButton(
+        onPressed: () {},
+        textColor: Color(0xFFFFFFFF),
+        color: itemcolor,
+        child: Container(
+          width: 250,
+          height: 35,
+          child: Stack(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  itemtext.data,
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Row(
+                  children: <Widget>[
+                    /*Text(
+                      '1.000',
+                      style: TextStyle(fontSize: 14),
+                    ),*/
+                    Icon(
+                      Icons.view_agenda,
+                      color: Color(0xFFFFFFFF),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -360,17 +474,33 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: Container(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              _ImageProfile(),
-              RaisedButton(
-                onPressed: () {
-                  _showChoiceDialog(context);
-                },
-                child: Text("Select Image"),
-              )
-            ],
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                FlatButton(
+                  padding: new EdgeInsets.all(25.0),
+                  onPressed: () {
+                    _showChoiceDialog(context);
+                  },
+                  child: _imageprofile(context),
+                ),
+                Text(
+                  "AYEUEIFJEZFI POEHU",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                ),
+                Container(
+                  padding: new EdgeInsets.all(25.0),
+                  child: Column(
+                    children: <Widget>[
+                      _socialnetworkslist(Color(0xFF4267B2), Text("Facebook")),
+                      _socialnetworkslist(Color(0xFF405DE6), Text("Instagram")),
+                      _socialnetworkslist(Color(0xFF1DA1F2), Text("Twitter")),
+                      _socialnetworkslist(Color(0xFF2867B2), Text("LinkedIn")),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
