@@ -1,3 +1,4 @@
+import 'package:Fluffy/Detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -21,18 +22,20 @@ class _HomePageState extends State<HomePage> {
           child: Container(
             child: Column(
               children: <Widget>[
-                FlatButton(
-                  padding: new EdgeInsets.all(25.0),
-                  onPressed: () {},
-                ),
-                Text(
-                  "AYEUEIFJEZFI POEHU",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                ),
                 Container(
-                  padding: new EdgeInsets.all(25.0),
-                  child: Column(
-                    children: <Widget>[],
+                  height: 50,
+                ),
+                OutlineButton(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0)),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => DetailPage()));
+                  },
+                  child: Text(
+                    "List of Post in coming !!!",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
                 ),
               ],

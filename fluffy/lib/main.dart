@@ -9,8 +9,8 @@ import 'package:path/path.dart';
 //File Page Includ
 import './Detail_page.dart';
 import './profile.dart';
-import './Social.dart';
 import './login.dart';
+import './home.dart';
 
 void main() {
   runApp(MyApp());
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),*/
       body: IndexedStack(
         children: <Widget>[
-          ProfilePage(),
+          HomePage(),
           ProfilePage(),
           ProfilePage(),
         ],
