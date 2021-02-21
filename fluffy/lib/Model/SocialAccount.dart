@@ -3,9 +3,5 @@ class SocialAccount {
   String age;
   String location;
 
-  User();
-
-  ...
-  
-  };
+  SocialAccount();
 }
