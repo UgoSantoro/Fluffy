@@ -1,3 +1,4 @@
+import 'package:Fluffy/Social.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -193,11 +194,26 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _socialnetworkslist(Color itemcolor, Text itemtext) {
+  Widget _socialnetworkslist(
+      Color itemcolor, Text itemtext, BuildContext context) {
     return Container(
       padding: new EdgeInsets.all(5.0),
       child: RaisedButton(
-        onPressed: () {},
+        onPressed: () {
+          if (itemtext.data == "Facebook") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => FacebookPage()));
+          } else if (itemtext.data == "Instagram") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => InstagramPage()));
+          } else if (itemtext.data == "Twitter") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => TwitterPage()));
+          } else if (itemtext.data == "LinkedIn") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => LinkedlnPage()));
+          }
+        },
         textColor: Color(0xFFFFFFFF),
         color: itemcolor,
         child: Container(
@@ -239,9 +255,6 @@ class _ProfilePageState extends State<ProfilePage> {
     _initImage(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Profile"),
-      ),
       body: Container(
         child: Center(
           child: Container(
@@ -262,10 +275,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   padding: new EdgeInsets.all(25.0),
                   child: Column(
                     children: <Widget>[
-                      _socialnetworkslist(Color(0xFF4267B2), Text("Facebook")),
-                      _socialnetworkslist(Color(0xFF405DE6), Text("Instagram")),
-                      _socialnetworkslist(Color(0xFF1DA1F2), Text("Twitter")),
-                      _socialnetworkslist(Color(0xFF2867B2), Text("LinkedIn")),
+                      _socialnetworkslist(
+                          Color(0xFF4267B2), Text("Facebook"), context),
+                      _socialnetworkslist(
+                          Color(0xFF405DE6), Text("Instagram"), context),
+                      _socialnetworkslist(
+                          Color(0xFF1DA1F2), Text("Twitter"), context),
+                      _socialnetworkslist(
+                          Color(0xFF2867B2), Text("LinkedIn"), context),
                     ],
                   ),
                 ),

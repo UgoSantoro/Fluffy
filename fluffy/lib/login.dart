@@ -5,6 +5,46 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import './main.dart';
 
 class LoginPage extends StatelessWidget {
+  static final FacebookLogin facebookSignIn = new FacebookLogin();
+
+  String _message = 'Log in/out by pressing the buttons below.';
+
+  Future<Null> _login(BuildContext context) async {
+    final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
+
+    switch (result.status) {
+      case FacebookLoginStatus.loggedIn:
+        final FacebookAccessToken accessToken = result.accessToken;
+        _showMessage('''
+         Logged in!
+         Token: ${accessToken.token}
+         User id: ${accessToken.userId}
+         Expires: ${accessToken.expires}
+         Permissions: ${accessToken.permissions}
+         Declined permissions: ${accessToken.declinedPermissions}
+         ''');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => MyHomePage()),
+        );
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+        _showMessage('Login cancelled by the user.');
+        break;
+      case FacebookLoginStatus.error:
+        _showMessage('Something went wrong with the login process.\n'
+            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+        break;
+    }
+  }
+
+  Future<Null> _logOut() async {
+    await facebookSignIn.logOut();
+    _showMessage('Logged out.');
+  }
+
+  void _showMessage(String message) {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +68,7 @@ class LoginPage extends StatelessWidget {
             color: Colors.black,
             child: ElevatedButton.icon(
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()),
-                );
+                _login(context);
               },
               style: ElevatedButton.styleFrom(
                 shape: new RoundedRectangleBorder(
