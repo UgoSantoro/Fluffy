@@ -89,9 +89,15 @@ class LoginPage extends StatelessWidget {
           if (itemtext.data == "Facebook") {
             _loginFacebook(context);
           } else if (itemtext.data == "Instagram") {
-            _loginFacebook(context);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => MyHomePage()),
+            );
           } else if (itemtext.data == "Twitter") {
-            _loginTwitter(context);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => MyHomePage()),
+            );
           } else if (itemtext.data == "LinkedIn") {
             _loginFacebook(context);
           }
