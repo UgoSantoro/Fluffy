@@ -7,6 +7,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import './main.dart';
+import './app_icons_icons.dart';
+
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key}) : super(key: key);
   @override
@@ -195,7 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _socialnetworkslist(
-      Color itemcolor, Text itemtext, BuildContext context) {
+      Color itemcolor, Text itemtext, BuildContext context, Icon icon) {
     return Container(
       padding: new EdgeInsets.all(5.0),
       child: RaisedButton(
@@ -232,20 +235,31 @@ class _ProfilePageState extends State<ProfilePage> {
                 alignment: Alignment.centerRight,
                 child: Row(
                   children: <Widget>[
-                    /*Text(
-                      '1.000',
-                      style: TextStyle(fontSize: 14),
-                    ),*/
-                    Icon(
-                      Icons.view_agenda,
-                      color: Color(0xFFFFFFFF),
-                    ),
+                    icon,
                   ],
                 ),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _socialcontainer(BuildContext context) {
+    return Container(
+      padding: new EdgeInsets.all(25.0),
+      child: Column(
+        children: <Widget>[
+          _socialnetworkslist(Color(0xFF4267B2), Text("Facebook"), context,
+              Icon(AppIcons.facebook, color: Color(0xFFFFFFFF))),
+          _socialnetworkslist(Color(0xFF405DE6), Text("Instagram"), context,
+              Icon(AppIcons.instagram, color: Color(0xFFFFFFFF))),
+          _socialnetworkslist(Color(0xFF1DA1F2), Text("Twitter"), context,
+              Icon(AppIcons.twitter, color: Color(0xFFFFFFFF))),
+          _socialnetworkslist(Color(0xFF2867B2), Text("LinkedIn"), context,
+              Icon(AppIcons.linkedin, color: Color(0xFFFFFFFF))),
+        ],
       ),
     );
   }
@@ -258,6 +272,8 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Container(
         child: Center(
           child: Container(
+            //Padding Top
+            padding: new EdgeInsets.all(50.0),
             child: Column(
               children: <Widget>[
                 FlatButton(
@@ -268,24 +284,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: _imageprofile(context),
                 ),
                 Text(
-                  "AYEUEIFJEZFI POEHU",
+                  "user name".toUpperCase(),
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                 ),
-                Container(
-                  padding: new EdgeInsets.all(25.0),
-                  child: Column(
-                    children: <Widget>[
-                      _socialnetworkslist(
-                          Color(0xFF4267B2), Text("Facebook"), context),
-                      _socialnetworkslist(
-                          Color(0xFF405DE6), Text("Instagram"), context),
-                      _socialnetworkslist(
-                          Color(0xFF1DA1F2), Text("Twitter"), context),
-                      _socialnetworkslist(
-                          Color(0xFF2867B2), Text("LinkedIn"), context),
-                    ],
-                  ),
-                ),
+                _socialcontainer(context),
               ],
             ),
           ),
