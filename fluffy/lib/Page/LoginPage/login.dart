@@ -4,8 +4,8 @@ import 'package:twitter_login/twitter_login.dart';
 import 'package:linkedin_login/linkedin_login.dart';
 
 //File Page Includ
-import './main.dart';
-import './app_icons_icons.dart';
+import '../../main.dart';
+import '../../Widget/app_icons_icons.dart';
 
 class LoginPage extends StatelessWidget {
   static final FacebookLogin facebookSignIn = new FacebookLogin();

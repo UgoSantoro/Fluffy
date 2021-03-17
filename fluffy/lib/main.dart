@@ -7,10 +7,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 
 //File Page Includ
-import './Detail_page.dart';
-import './profile.dart';
-import './login.dart';
-import './home.dart';
+import 'Page/PostPage/Detail_page.dart';
+import 'Page/HomePage/profile.dart';
+import 'Page/LoginPage/login.dart';
+import 'Page/HomePage/home.dart';
 
 void main() {
   runApp(MyApp());

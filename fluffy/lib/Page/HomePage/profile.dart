@@ -1,4 +1,4 @@
-import 'package:Fluffy/Social.dart';
+import 'package:Fluffy/Page/SocialPage/Social.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -7,8 +7,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import './main.dart';
-import './app_icons_icons.dart';
+import '../../main.dart';
+import '../../Widget/app_icons_icons.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key}) : super(key: key);
