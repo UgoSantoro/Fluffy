@@ -45,9 +45,9 @@ class LoginPage extends StatelessWidget {
   void _loginTwitter(BuildContext context) async {
     final twitterLogin = TwitterLogin(
       // Consumer API keys
-      apiKey: 'LeswfZrFfrRCwng6hLaufjWbi',
+      apiKey: 'Ykpb0mw5qerxQtrGGLDqWVAwA',
       // Consumer API Secret keys
-      apiSecretKey: 'TPhJRjdHF6h6jYUkRiDsd9smoBaIqyFc08sxB7X4C2NnvSWUpb',
+      apiSecretKey: 'U4a4aeFq9ThWjC9OKvzb3aBGnhTbhYhUjIvkKW703Nwh021s4y',
       // Registered Callback URLs in TwitterApp
       // Android is a deeplink
       // iOS is a URLScheme
@@ -94,10 +94,7 @@ class LoginPage extends StatelessWidget {
               MaterialPageRoute(builder: (context) => MyHomePage()),
             );
           } else if (itemtext.data == "Twitter") {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => MyHomePage()),
-            );
+            _loginTwitter(context);
           } else if (itemtext.data == "LinkedIn") {
             _loginFacebook(context);
           }
