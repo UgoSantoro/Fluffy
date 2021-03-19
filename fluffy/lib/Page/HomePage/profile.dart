@@ -272,9 +272,9 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Container(
         padding: new EdgeInsets.all(50.0),
         child: Center(
-          child: Flexible(
+          child: ListView(
             //Padding Top
-            child: Column(
+            //child: Column(
               children: <Widget>[
                 FlatButton(
                   padding: new EdgeInsets.all(25.0),
@@ -291,7 +291,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
-        ),
+      //  ),
       ),
     );
   }
