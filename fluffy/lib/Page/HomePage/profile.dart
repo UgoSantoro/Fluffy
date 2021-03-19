@@ -270,10 +270,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
       body: Container(
+        padding: new EdgeInsets.all(50.0),
         child: Center(
-          child: Container(
+          child: Flexible(
             //Padding Top
-            padding: new EdgeInsets.all(50.0),
             child: Column(
               children: <Widget>[
                 FlatButton(
