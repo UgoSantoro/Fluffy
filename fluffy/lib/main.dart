@@ -9,6 +9,7 @@ import 'package:path/path.dart';
 //File Page Includ
 import 'Page/PostPage/Detail_page.dart';
 import 'Page/HomePage/profile.dart';
+import 'Page/HomePage/recent.dart';
 import 'Page/LoginPage/login.dart';
 import 'Page/HomePage/home.dart';
 
@@ -94,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: IndexedStack(
         children: <Widget>[
           HomePage(),
-          ProfilePage(),
+          RecentPage(),
           ProfilePage(),
         ],
         index: _selectedIndex,

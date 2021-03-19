@@ -273,25 +273,22 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: new EdgeInsets.all(50.0),
         child: Center(
           child: ListView(
-            //Padding Top
-            //child: Column(
-              children: <Widget>[
-                FlatButton(
-                  padding: new EdgeInsets.all(25.0),
-                  onPressed: () {
-                    _showChoiceDialog(context);
-                  },
-                  child: _imageprofile(context),
-                ),
-                Text(
-                  "user name".toUpperCase(),
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                ),
-                _socialcontainer(context),
-              ],
-            ),
+            children: <Widget>[
+              FlatButton(
+                padding: new EdgeInsets.all(25.0),
+                onPressed: () {
+                  _showChoiceDialog(context);
+                },
+                child: _imageprofile(context),
+              ),
+              Text(
+                "user name".toUpperCase(),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+              ),
+              _socialcontainer(context),
+            ],
           ),
-      //  ),
+        ),
       ),
     );
   }
