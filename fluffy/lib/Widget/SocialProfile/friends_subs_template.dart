@@ -76,14 +76,53 @@ class Friends_Subs_TMP extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildfriends() {
     return ListView(
       children: <Widget>[
         buildFriends_template(
             Text("Test"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg")),
+        buildFriends_template(
+            Text("Username"),
+            Text(
+                "https://img-19.ccm2.net/ppaPB1I48R0LInb9Z8QBoUqXqSQ=/480x335/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg")),
+        buildFriends_template(
+            Text("Sonic"),
+            Text(
+                "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw")),
+        buildFriends_template(
+            Text("Earth"),
+            Text(
+                "https://img.huffingtonpost.com/asset/5d724df83b0000683fd0abe1.png?cache=pokxgDhxmj&ops=scalefit_630_noupscale")),
       ],
+    );
+  }
+
+  @override
+  Widget buildsubscribers() {
+    return ListView(
+      children: <Widget>[
+        buildFriends_template(
+            Text("Username"),
+            Text(
+                "https://img-19.ccm2.net/ppaPB1I48R0LInb9Z8QBoUqXqSQ=/480x335/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg")),
+        buildFriends_template(
+            Text("dragon-ball"),
+            Text(
+                "https://www.journaldugeek.com/content/uploads/2021/01/dragon-ball-4995675-1280-640x492.jpg")),
+        buildFriends_template(
+            Text("Sonic"),
+            Text(
+                "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw")),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[],
     );
   }
 }

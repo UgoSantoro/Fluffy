@@ -97,6 +97,20 @@ class Posts_TMP extends StatelessWidget {
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
             Text("fdfhbthnjtrnytn,yhnfgndfn"),
             Text("https://pbs.twimg.com/media/DfkhrO1XUAEYkdw.jpg")),
+        build_posts_template(
+            Text("username"),
+            Text(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWmYyuXiL768aS-87gaP_QvbFL4AkegqRBw&usqp=CAU"),
+            Text("fdfhbthnjtrnytn,yhnfgndfn"),
+            Text(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctlVINh5Xecdn8z254cNFVuvSdEKfpNVgCg&usqp=CAU")),
+        build_posts_template(
+            Text("username"),
+            Text(
+                "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
+            Text("fdfhbthnjtrnytn,yhnfgndfn"),
+            Text(
+                "https://st2.depositphotos.com/3759967/5593/i/600/depositphotos_55936567-stock-photo-swirling-frosty-multi-colored-fractal.jpg")),
       ],
     );
   }

@@ -28,14 +28,14 @@ class Page extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 400, //height of TabBarView
+                height: 600, //height of TabBarView
                 decoration: BoxDecoration(
                     border: Border(
                         top: BorderSide(color: Colors.grey, width: 0.5))),
                 child: TabBarView(
                   children: <Widget>[
-                    Friends_Subs_TMP().build(context),
-                    Friends_Subs_TMP().build(context),
+                    Friends_Subs_TMP().buildfriends(),
+                    Friends_Subs_TMP().buildsubscribers(),
                     Posts_TMP().build(context),
                     User_Profile_TMP().build(context),
                   ],
