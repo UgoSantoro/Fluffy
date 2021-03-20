@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:twitter_login/twitter_login.dart';
+import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 import 'package:linkedin_login/linkedin_login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:oauth1/oauth1.dart';
 
 //File Page Includ
 import '../../main.dart';
 import '../../Widget/app_icons_icons.dart';
 
+
 class LoginPage extends StatelessWidget {
+
+
   static final FacebookLogin facebookSignIn = new FacebookLogin();
 
   String _message = 'Log in/out by pressing the buttons below.';
@@ -42,6 +49,29 @@ class LoginPage extends StatelessWidget {
     }
   }
 
+
+  void _twitterLogin() async {
+    String newMessage;
+    var twitterLogin = new TwitterLogin(
+      consumerKey: 'Ykpb0mw5qerxQtrGGLDqWVAwA',
+      consumerSecret: 'U4a4aeFq9ThWjC9OKvzb3aBGnhTbhYhUjIvkKW703Nwh021s4y',
+    );
+
+    final TwitterLoginResult result = await twitterLogin.authorize();
+
+    switch (result.status) {
+      case TwitterLoginStatus.loggedIn:
+        newMessage = 'Logged in! username: ${result.session.username}';
+        break;
+      case TwitterLoginStatus.cancelledByUser:
+        newMessage = 'Login cancelled by user.';
+        break;
+      case TwitterLoginStatus.error:
+        newMessage = 'Login error: ${result.errorMessage}';
+        break;
+    }
+  }
+/*
   void _loginTwitter(BuildContext context) async {
     final twitterLogin = TwitterLogin(
       // Consumer API keys
@@ -76,7 +106,7 @@ class LoginPage extends StatelessWidget {
         print(authResult.errorMessage);
         break;
     }
-  }
+  }*/
 
   void _showMessage(String message) {}
 
@@ -94,7 +124,7 @@ class LoginPage extends StatelessWidget {
               MaterialPageRoute(builder: (context) => MyHomePage()),
             );
           } else if (itemtext.data == "Twitter") {
-            _loginTwitter(context);
+            _twitterLogin();
           } else if (itemtext.data == "LinkedIn") {
             _loginFacebook(context);
           }
