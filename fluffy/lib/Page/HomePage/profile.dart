@@ -1,3 +1,4 @@
+import 'package:Fluffy/Model/Constants.dart';
 import 'package:Fluffy/Page/SocialPage/Social.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -112,11 +113,11 @@ class _ProfilePageState extends State<ProfilePage> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(150),
           child: Container(
-            color: Color(0xFF5B2B83),
+            color: Constants().app_color,
             child: Icon(
               Icons.person,
               size: 200,
-              color: Color(0xFFFFFFFF),
+              color: Constants().icon_photo_profile,
             ),
           ),
         ),
@@ -143,10 +144,10 @@ class _ProfilePageState extends State<ProfilePage> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(150),
         child: Container(
-          color: Color(0xFF5B2B83),
+          color: Constants().app_color,
           child: Icon(
             Icons.photo_camera,
-            color: Color(0xFFFFFFFF),
+            color: Constants().icon_photo_profile,
           ),
         ),
       ),
@@ -164,7 +165,7 @@ class _ProfilePageState extends State<ProfilePage> {
             height: 250,
             child: CircleAvatar(
               radius: 100,
-              backgroundColor: Color(0xFFDADADA),
+              backgroundColor: Constants().border_image,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -181,7 +182,7 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 65,
               child: CircleAvatar(
                 radius: 100,
-                backgroundColor: Color(0xFFDADADA),
+                backgroundColor: Constants().border_image,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -217,7 +218,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 MaterialPageRoute(builder: (context) => LinkedlnPage()));
           }
         },
-        textColor: Color(0xFFFFFFFF),
+        textColor: Constants().white_text,
         color: itemcolor,
         child: Container(
           width: 250,
@@ -251,14 +252,26 @@ class _ProfilePageState extends State<ProfilePage> {
       padding: new EdgeInsets.all(25.0),
       child: Column(
         children: <Widget>[
-          _socialnetworkslist(Color(0xFF4267B2), Text("Facebook"), context,
-              Icon(AppIcons.facebook, color: Color(0xFFFFFFFF))),
-          _socialnetworkslist(Color(0xFF405DE6), Text("Instagram"), context,
-              Icon(AppIcons.instagram, color: Color(0xFFFFFFFF))),
-          _socialnetworkslist(Color(0xFF1DA1F2), Text("Twitter"), context,
-              Icon(AppIcons.twitter, color: Color(0xFFFFFFFF))),
-          _socialnetworkslist(Color(0xFF2867B2), Text("LinkedIn"), context,
-              Icon(AppIcons.linkedin, color: Color(0xFFFFFFFF))),
+          _socialnetworkslist(
+              Constants().facebook_color,
+              Text("Facebook"),
+              context,
+              Icon(AppIcons.facebook, color: Constants().icon_photo_profile)),
+          _socialnetworkslist(
+              Constants().instagram_color,
+              Text("Instagram"),
+              context,
+              Icon(AppIcons.instagram, color: Constants().icon_photo_profile)),
+          _socialnetworkslist(
+              Constants().twitter_color,
+              Text("Twitter"),
+              context,
+              Icon(AppIcons.twitter, color: Constants().icon_photo_profile)),
+          _socialnetworkslist(
+              Constants().linkedin_color,
+              Text("LinkedIn"),
+              context,
+              Icon(AppIcons.linkedin, color: Constants().icon_photo_profile)),
         ],
       ),
     );

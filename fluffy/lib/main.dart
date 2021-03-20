@@ -1,3 +1,4 @@
+import 'package:Fluffy/Model/Constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:image_picker/image_picker.dart';
@@ -104,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
         index: _selectedIndex,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color.fromRGBO(86, 0, 232, 1),
+        backgroundColor: Constants().login_app_color,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -124,39 +125,6 @@ class _MyHomePageState extends State<MyHomePage> {
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
-      /*bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0, // this will be set when a new tab is tapped
-        items: [
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.search),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-          )
-        ],
-      ),*/
-      /*body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.*/
     );
   }
 }

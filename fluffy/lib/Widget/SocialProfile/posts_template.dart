@@ -1,19 +1,7 @@
 import 'package:Fluffy/Model/Constants.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class RecentPage extends StatefulWidget {
-  RecentPage({Key key}) : super(key: key);
-  @override
-  _RecentPageState createState() => _RecentPageState();
-}
-
-class _RecentPageState extends State<RecentPage> {
+class Posts_TMP extends StatelessWidget {
   Widget build_posts_profile_image(Text imagelink) {
     return Container(
       width: 30,
@@ -82,7 +70,7 @@ class _RecentPageState extends State<RecentPage> {
     );
   }
 
-  Widget build_posts(
+  Widget build_posts_template(
       Text nameuser, Text userimage, Text postdesc, Text postimage) {
     return Container(
       padding: EdgeInsets.only(left: 7.0, top: 14.0, right: 7.0),
@@ -100,40 +88,16 @@ class _RecentPageState extends State<RecentPage> {
     );
   }
 
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Recent"),
-      ),
-      body: Container(
-        child: Center(
-          child: ListView(
-            children: <Widget>[
-              build_posts(
-                  Text("username"),
-                  Text(
-                      "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
-                  Text("fdfhbthnjtrnytn,yhnfgndfn"),
-                  Text("https://pbs.twimg.com/media/DfkhrO1XUAEYkdw.jpg")),
-              build_posts(
-                  Text("username"),
-                  Text(
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWmYyuXiL768aS-87gaP_QvbFL4AkegqRBw&usqp=CAU"),
-                  Text("fdfhbthnjtrnytn,yhnfgndfn"),
-                  Text(
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctlVINh5Xecdn8z254cNFVuvSdEKfpNVgCg&usqp=CAU")),
-              build_posts(
-                  Text("username"),
-                  Text(
-                      "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
-                  Text("fdfhbthnjtrnytn,yhnfgndfn"),
-                  Text(
-                      "https://st2.depositphotos.com/3759967/5593/i/600/depositphotos_55936567-stock-photo-swirling-frosty-multi-colored-fractal.jpg")),
-            ],
-          ),
-        ),
-      ),
+    return ListView(
+      children: <Widget>[
+        build_posts_template(
+            Text("username"),
+            Text(
+                "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
+            Text("fdfhbthnjtrnytn,yhnfgndfn"),
+            Text("https://pbs.twimg.com/media/DfkhrO1XUAEYkdw.jpg")),
+      ],
     );
   }
 }

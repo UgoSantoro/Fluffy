@@ -1,3 +1,4 @@
+import 'package:Fluffy/Model/Constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
@@ -11,10 +12,7 @@ import 'package:oauth1/oauth1.dart';
 import '../../main.dart';
 import '../../Widget/app_icons_icons.dart';
 
-
 class LoginPage extends StatelessWidget {
-
-
   static final FacebookLogin facebookSignIn = new FacebookLogin();
 
   String _message = 'Log in/out by pressing the buttons below.';
@@ -48,7 +46,6 @@ class LoginPage extends StatelessWidget {
         break;
     }
   }
-
 
   void _twitterLogin() async {
     String newMessage;
@@ -129,7 +126,7 @@ class LoginPage extends StatelessWidget {
             _loginFacebook(context);
           }
         },
-        textColor: Color(0xFFFFFFFF),
+        textColor: Constants().white_text,
         color: itemcolor,
         child: Container(
           width: 250,
@@ -146,13 +143,7 @@ class LoginPage extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Row(
-                  children: <Widget>[
-                    /*Text(
-                      '1.000',
-                      style: TextStyle(fontSize: 14),
-                    ),*/
-                    icon
-                  ],
+                  children: <Widget>[icon],
                 ),
               ),
             ],
@@ -178,109 +169,30 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          /*
-          //Facebook
-          Container(
-            height: 40,
-            width: 200,
-            child: ElevatedButton.icon(
-              onPressed: () {
-                _loginFacebook(context);
-              },
-              style: ElevatedButton.styleFrom(
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
-                ),
-                primary: Color.fromRGBO(25, 118, 210, 1),
-              ),
-              icon: Icon(Icons.home),
-              label: Text("Facebook"),
-            ),
-          ),
-          //Instagram
-          Container(
-            height: 40,
-            width: 200,
-            child: ElevatedButton.icon(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
-                ),
-                primary: Color(0xFF405DE6),
-              ),
-              icon: Icon(Icons.home),
-              label: Text("Instagram"),
-            ),
-          ),
-          /*Container(
-            margin: EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromRGBO(254, 218, 117, 1),
-                  Color.fromRGBO(250, 126, 30, 1),
-                  Color.fromRGBO(150, 47, 191, 1),
-                  Color.fromRGBO(79, 91, 213, 1),
-                ],
-                begin: FractionalOffset.centerLeft,
-                end: FractionalOffset.centerRight,
-              ),
-            ),
-            child: ElevatedButton.icon(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
-                  ),
-                  primary: Color.fromRGBO(0, 0, 0, 0),
-                ),
-                icon: Icon(Icons.home),
-                label: Text("Instagram")),
-          ),*/
-          //Twitter
-          Container(
-            height: 40,
-            width: 200,
-            child: ElevatedButton.icon(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
-                ),
-                primary: Color(0xFF1DA1F2),
-              ),
-              icon: Icon(Icons.home),
-              label: Text("Twitter"),
-            ),
-          ),
-          //LinkedIn
-          Container(
-            height: 40,
-            width: 200,
-            child: ElevatedButton.icon(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
-                ),
-                primary: Color(0xFF2867B2),
-              ),
-              icon: Icon(Icons.home),
-              label: Text('LinkedIn'),
-            ),
-          ),*/
           Container(
             height: 40,
           ),
-          _socialnetworkslist(Color(0xFF4267B2), Text("Facebook"), context,
-              Icon(AppIcons.facebook, color: Color(0xFFFFFFFF))),
-          _socialnetworkslist(Color(0xFF405DE6), Text("Instagram"), context,
-              Icon(AppIcons.instagram, color: Color(0xFFFFFFFF))),
-          _socialnetworkslist(Color(0xFF1DA1F2), Text("Twitter"), context,
-              Icon(AppIcons.twitter, color: Color(0xFFFFFFFF))),
-          _socialnetworkslist(Color(0xFF2867B2), Text("LinkedIn"), context,
-              Icon(AppIcons.linkedin, color: Color(0xFFFFFFFF))),
+
+          _socialnetworkslist(
+              Constants().facebook_color,
+              Text("Facebook"),
+              context,
+              Icon(AppIcons.facebook, color: Constants().icon_photo_profile)),
+          _socialnetworkslist(
+              Constants().instagram_color,
+              Text("Instagram"),
+              context,
+              Icon(AppIcons.instagram, color: Constants().icon_photo_profile)),
+          _socialnetworkslist(
+              Constants().twitter_color,
+              Text("Twitter"),
+              context,
+              Icon(AppIcons.twitter, color: Constants().icon_photo_profile)),
+          _socialnetworkslist(
+              Constants().linkedin_color,
+              Text("LinkedIn"),
+              context,
+              Icon(AppIcons.linkedin, color: Constants().icon_photo_profile)),
         ],
       ),
     );
