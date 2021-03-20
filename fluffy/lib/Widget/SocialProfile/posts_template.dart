@@ -1,4 +1,4 @@
-import 'package:Fluffy/Model/Constants.dart';
+import '../../Model/Constants.dart';
 import 'package:flutter/material.dart';
 
 class Posts_TMP extends StatelessWidget {

@@ -1,14 +1,13 @@
-import 'package:Fluffy/Model/Constants.dart';
-import 'package:Fluffy/Page/SocialPage/Social.dart';
+import '../../Model/Constants.dart';
+import '../../Page/SocialPage/Social.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../main.dart';
 import '../../Widget/app_icons_icons.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -18,7 +17,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  File imageFile;
+  File imageFile = File("");
 
   _initImage(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

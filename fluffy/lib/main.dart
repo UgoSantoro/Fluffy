@@ -1,30 +1,37 @@
-import 'package:Fluffy/Model/Constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart' as Path;
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:oauth1/oauth1.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 
 //File Page Includ
 import 'Page/PostPage/Detail_page.dart';
-import 'Page/HomePage/profile.dart';
-import 'Page/HomePage/recent.dart';
 import 'Page/LoginPage/login.dart';
-import 'Page/HomePage/home.dart';
+import './Page/LoginPage/login.dart';
+import './Page/LoginPage/LoginPending.dart';
+import './Page/HomePage/MyHomePage.dart';
+import './Page/PostPage/Detail_page.dart';
+import './Model/SocialAccount.dart' as localuser;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> with WidgetsBindingObserver {
+  static localuser.User currentUser;
+  static String FacebookAppId = "884595555442096";
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     FlutterStatusbarcolor.setStatusBarColor(Color.fromRGBO(86, 0, 232, 1));
     return MaterialApp(
       title: 'Fluffy',
@@ -32,99 +39,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: LoginPending(),
+      //LoginPage(),
       routes: <String, WidgetBuilder>{
         '/login': (BuildContext context) => new LoginPage(),
         '/home': (BuildContext context) => new MyHomePage(),
         '/detail': (BuildContext context) => new DetailPage()
-        //'/Facebook': (BuildContext context) => new Screen4()
-        //'/Twitter': (BuildContext context) => new Screen4()
-        //'/Linkedln': (BuildContext context) => new Screen4()
-        //'/Instagram': (BuildContext context) => new Screen4()
-        //'/Settings': (BuildContext context) => new SettingPage()
       },
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 1: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Search',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Accounts',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      /*appBar: AppBar(
-        title: Text(widget.title),
-      ),*/
-      body: IndexedStack(
-        children: <Widget>[
-          HomePage(),
-          RecentPage(),
-          ProfilePage(),
-        ],
-        index: _selectedIndex,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Constants().login_app_color,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'recent',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        onTap: _onItemTapped,
-      ),
     );
   }
 }

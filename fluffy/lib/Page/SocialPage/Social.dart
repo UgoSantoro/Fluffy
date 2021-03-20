@@ -1,6 +1,6 @@
-import 'package:Fluffy/Model/Constants.dart';
-import 'package:Fluffy/Widget/SocialProfile/posts_template.dart';
-import 'package:Fluffy/Widget/SocialProfile/user_profile_template.dart';
+import '../../Model/Constants.dart';
+import '../../Widget/SocialProfile/posts_template.dart';
+import '../../Widget/SocialProfile/user_profile_template.dart';
 import 'package:flutter/material.dart';
 import '../../Widget/SocialProfile/friends_subs_template.dart';
 

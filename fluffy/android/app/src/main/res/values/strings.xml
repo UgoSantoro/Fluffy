@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Fluffy</string>
-
-
     <string name="facebook_app_id">884595555442096</string>
     <string name="fb_login_protocol_scheme">fb884595555442096</string>
 </resources>

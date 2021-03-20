@@ -1,4 +1,3 @@
-import 'package:Fluffy/Page/PostPage/Detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';

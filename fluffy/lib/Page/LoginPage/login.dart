@@ -1,51 +1,50 @@
-import 'package:Fluffy/Model/Constants.dart';
+import '../../Model/Constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
-import 'package:linkedin_login/linkedin_login.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:oauth1/oauth1.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 //File Page Includ
-import '../../main.dart';
+import '../HomePage/MyHomePage.dart';
 import '../../Widget/app_icons_icons.dart';
+import '../../Model/SocialAccount.dart' as localuser;
+import '../../Tools/LocalTools.dart';
+import './facebook.dart';
+import './twitter.dart';
 
 class LoginPage extends StatelessWidget {
+  BuildContext _context;
   static final FacebookLogin facebookSignIn = new FacebookLogin();
 
-  String _message = 'Log in/out by pressing the buttons below.';
-
+  //Facebook
   Future<Null> _loginFacebook(BuildContext context) async {
-    final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
-
+    final facebookLogin = FacebookLogin();
+    final result = await facebookLogin.logIn(['email']);
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
-        final FacebookAccessToken accessToken = result.accessToken;
-
-        _showMessage('''
-         Logged in!
-         Token: ${accessToken.token}
-         User id: ${accessToken.userId}
-         Expires: ${accessToken.expires}
-         Permissions: ${accessToken.permissions}
-         Declined permissions: ${accessToken.declinedPermissions}
-         ''');
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => MyHomePage()),
-        );
+        await auth.FirebaseAuth.instance
+            .signInWithCredential(
+                auth.FacebookAuthProvider.credential(result.accessToken.token))
+            .then((auth.UserCredential authResult) async {
+          localuser.User user = await Localtools().getCurrentUser();
+          if (user == null) {
+            FluffyFacebooklogin.createUserFacebook(result, authResult.user.uid);
+          } else {
+            FluffyFacebooklogin.syncUserWithFacebook(result, user);
+          }
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => MyHomePage()),
+          );
+        });
         break;
       case FacebookLoginStatus.cancelledByUser:
-        _showMessage('Login cancelled by the user.');
         break;
       case FacebookLoginStatus.error:
-        _showMessage('Something went wrong with the login process.\n'
-            'Here\'s the error Facebook gave us: ${result.errorMessage}');
         break;
     }
   }
+  //End Facebook
 
   void _twitterLogin() async {
     String newMessage;
@@ -58,6 +57,26 @@ class LoginPage extends StatelessWidget {
 
     switch (result.status) {
       case TwitterLoginStatus.loggedIn:
+        final TwitterSession twitterSession = result.session;
+        final auth.AuthCredential twitterAuthCredential =
+            auth.TwitterAuthProvider.credential(
+                accessToken: twitterSession.token,
+                secret: twitterSession.secret);
+
+        await auth.FirebaseAuth.instance
+            .signInWithCredential(twitterAuthCredential)
+            .then((auth.UserCredential authResult) async {
+          localuser.User user = await Localtools().getCurrentUser();
+          if (user == null) {
+            FluffyTwitterlogin.createUserTwitter(result, authResult.user.uid);
+          } else {
+            FluffyTwitterlogin.syncUserWithTwitter(result, user);
+          }
+          Navigator.pushReplacement(
+            _context,
+            MaterialPageRoute(builder: (context) => MyHomePage()),
+          );
+        });
         newMessage = 'Logged in! username: ${result.session.username}';
         break;
       case TwitterLoginStatus.cancelledByUser:
@@ -68,44 +87,35 @@ class LoginPage extends StatelessWidget {
         break;
     }
   }
-/*
-  void _loginTwitter(BuildContext context) async {
-    final twitterLogin = TwitterLogin(
-      // Consumer API keys
-      apiKey: 'Ykpb0mw5qerxQtrGGLDqWVAwA',
-      // Consumer API Secret keys
-      apiSecretKey: 'U4a4aeFq9ThWjC9OKvzb3aBGnhTbhYhUjIvkKW703Nwh021s4y',
-      // Registered Callback URLs in TwitterApp
-      // Android is a deeplink
-      // iOS is a URLScheme
-      redirectURI: 'fluffy://',
-      // Forces the user to enter their credentials
-      // to ensure the correct users account is authorized.
-    );
-    // If you want to implement Twitter account switching, set [force_login] to true
-    // login(forceLogin: true);
-    final authResult = await twitterLogin.login();
-    switch (authResult.status) {
-      case TwitterLoginStatus.loggedIn:
-        // success
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => MyHomePage()),
-        );
-        break;
-      case TwitterLoginStatus.cancelledByUser:
-        // cancel
-        print('====== Login cancel ======');
-        break;
-      case TwitterLoginStatus.error:
-        // error
-        print('====== Login error ======');
-        print(authResult.errorMessage);
-        break;
-    }
-  }*/
+  //End Twitter
 
-  void _showMessage(String message) {}
+  Future<void> _showMessage(String message) {
+    return showDialog<void>(
+      context: _context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('AlertDialog Title'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('This is a demo alert dialog.'),
+                Text('Would you like to approve of this message?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Approve'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   Widget _socialnetworkslist(
       Color itemcolor, Text itemtext, BuildContext context, Icon icon) {
@@ -155,6 +165,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _context = context;
     return Scaffold(
       body: Column(
         children: <Widget>[

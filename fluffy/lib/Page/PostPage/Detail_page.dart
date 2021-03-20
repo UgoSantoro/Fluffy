@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
+//import 'package:http/http.dart' as http;
 
 class DetailPage extends StatelessWidget {
+  final postid = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Detail"),
-      ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
+        child: Container(),
       ),
     );
   }

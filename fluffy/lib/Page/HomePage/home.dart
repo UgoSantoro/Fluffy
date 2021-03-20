@@ -1,8 +1,10 @@
-import 'package:Fluffy/Page/PostPage/Detail_page.dart';
+import 'package:fluffy/main.dart';
+
+import '../PostPage/Detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(builder: (context) => DetailPage()));
                   },
                   child: Text(
-                    "List of Post in coming !!!",
+                    MyAppState.currentUser.firstName,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
