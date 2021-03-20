@@ -3,12 +3,21 @@ import '../../Page/SocialPage/Social.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:flutter_twitter_login/flutter_twitter_login.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 //import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+//File Page Includ
+import '../HomePage/MyHomePage.dart';
 import '../../Widget/app_icons_icons.dart';
+import '../LoginPage/facebook.dart';
+import '../LoginPage/twitter.dart';
+import '../../Model/SocialAccount.dart' as localuser;
+import '../../Tools/LocalTools.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key}) : super(key: key);
@@ -17,8 +26,10 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  //Image && Profile Selection
   File imageFile = File("");
 
+  // check if local image exist and select it
   _initImage(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -36,6 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  //Open user gallery to select a profile picture
   _openGallery(BuildContext context) async {
     final picker = ImagePicker();
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
@@ -61,6 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
     Navigator.of(context).pop();
   }
 
+  //Open Phone Camera to take a profile picture
   _openCamera(BuildContext context) async {
     final picker = ImagePicker();
 
@@ -76,6 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
     Navigator.of(context).pop();
   }
 
+  // Open choice dialog and select Camera or Gallery
   Future<void> _showChoiceDialog(BuildContext context) {
     return showDialog(
         context: context,
@@ -197,21 +211,105 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  //Facebook
+  void _loginFacebook(BuildContext context) async {
+    final facebookLogin = FacebookLogin();
+    final result = await facebookLogin.logIn(['email']);
+    switch (result.status) {
+      case FacebookLoginStatus.loggedIn:
+        await auth.FirebaseAuth.instance
+            .signInWithCredential(
+                auth.FacebookAuthProvider.credential(result.accessToken.token))
+            .then((auth.UserCredential authResult) async {
+          localuser.User user = await Localtools().getCurrentUser();
+          if (user == null) {
+            FluffyFacebooklogin.createUserFacebook(result, authResult.user.uid);
+          } else {
+            FluffyFacebooklogin.syncUserWithFacebook(result, user);
+          }
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => FacebookPage()),
+          );
+        });
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+        break;
+      case FacebookLoginStatus.error:
+        break;
+    }
+  }
+  //End Facebook
+
+  //Twitter
+  void _twitterLogin(BuildContext context) async {
+    String newMessage;
+    var twitterLogin = new TwitterLogin(
+      consumerKey: 'Ykpb0mw5qerxQtrGGLDqWVAwA',
+      consumerSecret: 'U4a4aeFq9ThWjC9OKvzb3aBGnhTbhYhUjIvkKW703Nwh021s4y',
+    );
+
+    final TwitterLoginResult result = await twitterLogin.authorize();
+
+    switch (result.status) {
+      case TwitterLoginStatus.loggedIn:
+        final TwitterSession twitterSession = result.session;
+        final auth.AuthCredential twitterAuthCredential =
+            auth.TwitterAuthProvider.credential(
+                accessToken: twitterSession.token,
+                secret: twitterSession.secret);
+
+        await auth.FirebaseAuth.instance
+            .signInWithCredential(twitterAuthCredential)
+            .then((auth.UserCredential authResult) async {
+          localuser.User user = await Localtools().getCurrentUser();
+          if (user == null) {
+            FluffyTwitterlogin.createUserTwitter(result, authResult.user.uid);
+          } else {
+            FluffyTwitterlogin.syncUserWithTwitter(result, user);
+          }
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TwitterPage()),
+          );
+        });
+        newMessage = 'Logged in! username: ${result.session.username}';
+        break;
+      case TwitterLoginStatus.cancelledByUser:
+        newMessage = 'Login cancelled by user.';
+        break;
+      case TwitterLoginStatus.error:
+        newMessage = 'Login error: ${result.errorMessage}';
+        break;
+    }
+  }
+  //End Twitter
+
   Widget _socialnetworkslist(
       Color itemcolor, Text itemtext, BuildContext context, Icon icon) {
     return Container(
       padding: new EdgeInsets.all(5.0),
       child: RaisedButton(
-        onPressed: () {
+        onPressed: () async {
+          localuser.User user = await Localtools().getCurrentUser();
+
           if (itemtext.data == "Facebook") {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => FacebookPage()));
+            if (user == null || user.facebook_accesstoken == "") {
+              _loginFacebook(context);
+            } else {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FacebookPage()));
+            }
           } else if (itemtext.data == "Instagram") {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => InstagramPage()));
           } else if (itemtext.data == "Twitter") {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => TwitterPage()));
+            if (user == null || user.twitter_accesstoken == "") {
+              _twitterLogin(context);
+            } else {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => TwitterPage()));
+            }
           } else if (itemtext.data == "LinkedIn") {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => LinkedlnPage()));

@@ -20,10 +20,6 @@ class _MyHomePageState extends State<MyHomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 1: Home',
-      style: optionStyle,
-    ),
-    Text(
       'Index 1: Search',
       style: optionStyle,
     ),
@@ -47,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),*/
       body: IndexedStack(
         children: <Widget>[
-          HomePage(),
           RecentPage(),
           ProfilePage(),
         ],
@@ -56,10 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color.fromRGBO(86, 0, 232, 1),
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
             label: 'recent',

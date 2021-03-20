@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
   static final FacebookLogin facebookSignIn = new FacebookLogin();
 
   //Facebook
-  Future<Null> _loginFacebook(BuildContext context) async {
+  void _loginFacebook(BuildContext context) async {
     final facebookLogin = FacebookLogin();
     final result = await facebookLogin.logIn(['email']);
     switch (result.status) {
@@ -46,7 +46,8 @@ class LoginPage extends StatelessWidget {
   }
   //End Facebook
 
-  void _twitterLogin() async {
+  //Twitter
+  void _twitterLogin(BuildContext context) async {
     String newMessage;
     var twitterLogin = new TwitterLogin(
       consumerKey: 'Ykpb0mw5qerxQtrGGLDqWVAwA',
@@ -73,7 +74,7 @@ class LoginPage extends StatelessWidget {
             FluffyTwitterlogin.syncUserWithTwitter(result, user);
           }
           Navigator.pushReplacement(
-            _context,
+            context,
             MaterialPageRoute(builder: (context) => MyHomePage()),
           );
         });
@@ -88,6 +89,10 @@ class LoginPage extends StatelessWidget {
     }
   }
   //End Twitter
+
+  //Instagram
+  void _instragramLogin(BuildContext context) async {}
+  //End Instagram
 
   Future<void> _showMessage(String message) {
     return showDialog<void>(
@@ -126,12 +131,9 @@ class LoginPage extends StatelessWidget {
           if (itemtext.data == "Facebook") {
             _loginFacebook(context);
           } else if (itemtext.data == "Instagram") {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => MyHomePage()),
-            );
+            _instragramLogin(context);
           } else if (itemtext.data == "Twitter") {
-            _twitterLogin();
+            _twitterLogin(context);
           } else if (itemtext.data == "LinkedIn") {
             _loginFacebook(context);
           }
