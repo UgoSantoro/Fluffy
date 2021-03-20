@@ -17,7 +17,7 @@ class Page extends StatelessWidget {
             children: <Widget>[
               Container(
                 child: TabBar(
-                  labelColor: Constants().app_color,
+                  labelColor: Constants().login_app_color,
                   unselectedLabelColor: Colors.black,
                   tabs: [
                     Tab(text: 'Friends'.toUpperCase()),
@@ -31,7 +31,8 @@ class Page extends StatelessWidget {
                 height: 600, //height of TabBarView
                 decoration: BoxDecoration(
                     border: Border(
-                        top: BorderSide(color: Colors.grey, width: 0.5))),
+                        top: BorderSide(
+                            color: Constants().login_app_color, width: 0.5))),
                 child: TabBarView(
                   children: <Widget>[
                     Friends_Subs_TMP().buildfriends(),
@@ -55,17 +56,12 @@ class FacebookPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Facebook"),
+        backgroundColor: Constants().login_app_color,
       ),
       body: Center(
         child: Column(
           children: <Widget>[
             Page(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Go back!'),
-            ),
           ],
         ),
       ),
@@ -79,17 +75,12 @@ class InstagramPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Instagram"),
+        backgroundColor: Constants().login_app_color,
       ),
       body: Center(
         child: Column(
           children: <Widget>[
             Page(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Go back!'),
-            ),
           ],
         ),
       ),
@@ -103,17 +94,12 @@ class TwitterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Twitter"),
+        backgroundColor: Constants().login_app_color,
       ),
       body: Center(
         child: Column(
           children: <Widget>[
             Page(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Go back!'),
-            ),
           ],
         ),
       ),
@@ -127,17 +113,12 @@ class LinkedlnPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Linkedln"),
+        backgroundColor: Constants().login_app_color,
       ),
       body: Center(
         child: Column(
           children: <Widget>[
             Page(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Go back!'),
-            ),
           ],
         ),
       ),

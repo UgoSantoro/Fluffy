@@ -66,7 +66,7 @@ class Friends_Subs_TMP extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     bottomLeft: Radius.circular(15)),
-                color: Constants().firneds_subscribers_border_color,
+                color: Constants().login_app_color,
               ),
             ),
           ],

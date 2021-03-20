@@ -21,7 +21,7 @@ class Constants extends StatelessWidget {
   Color posts_color = new Color(0xFFE0E0E0);
 
   //USER PROFILE
-  Color firneds_subscribers_border_color = new Color(0xFF0051FF);
+  Color friends_subscribers_border_color = new Color(0xFF0051FF);
 
   @override
   Widget build(BuildContext context) {
