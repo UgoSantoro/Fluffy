@@ -8,6 +8,8 @@ class Friends_TMP extends StatelessWidget {
   final Text itemtext;
   final Text nameuser;
   final Text userimage;
+
+  // FRIEND IMAGE
   Widget build_friends_profile_image(Text imagelink) {
     return Container(
       padding: EdgeInsets.only(left: 10.0),
@@ -39,6 +41,7 @@ class Friends_TMP extends StatelessWidget {
     );
   }
 
+  // FRIENDS TEMPLATE
   Widget buildFriends_template() {
     return Container(
       padding: EdgeInsets.only(left: 7.0, top: 14.0, right: 7.0),
@@ -65,7 +68,6 @@ class Friends_TMP extends StatelessWidget {
                 ),
               ),
             ),
-            //build_posts_info(nameuser, userimage, postdesc, postimage),
             Container(
               width: 8,
               decoration: BoxDecoration(
@@ -81,6 +83,7 @@ class Friends_TMP extends StatelessWidget {
     );
   }
 
+  // CHECK SOCIAL NETWORK
   Widget build_social() {
     if (itemtext.data == "Facebook") {
       return Example_data().build_friends_facebook();

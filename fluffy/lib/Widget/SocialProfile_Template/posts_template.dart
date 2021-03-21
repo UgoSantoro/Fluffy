@@ -5,6 +5,8 @@ import '../../Model/Example_Data/example_data.dart';
 class Posts_TMP extends StatelessWidget {
   const Posts_TMP({Key key, this.itemtext}) : super(key: key);
   final Text itemtext;
+
+  //USER IMAGE POST
   Widget build_posts_profile_image(Text imagelink) {
     return Container(
       width: 30,
@@ -33,6 +35,7 @@ class Posts_TMP extends StatelessWidget {
     );
   }
 
+  // POST - INFORMATION --> LIKES, COMMENTS & SHARE
   Widget build_postsdetails(Text itemtext, Icon icon) {
     return Expanded(
       child: Container(
@@ -65,6 +68,7 @@ class Posts_TMP extends StatelessWidget {
     );
   }
 
+  // POST - INFORMATION
   Widget build_posts_info(Text nameuser, Text userimage, Text postdesc,
       Text postimage, Text likes, Text comments, Text shares) {
     return Container(
@@ -127,6 +131,7 @@ class Posts_TMP extends StatelessWidget {
     );
   }
 
+  // POSTS TEMPLATE
   Widget build_posts_template(Text nameuser, Text userimage, Text postdesc,
       Text postimage, Text likes, Text comments, Text shares) {
     return Container(
@@ -146,6 +151,7 @@ class Posts_TMP extends StatelessWidget {
     );
   }
 
+  // CHECK SOCIAL NETWORK
   Widget build_social() {
     if (itemtext.data == "Facebook") {
       return Example_data().build_posts_facebook();
@@ -157,42 +163,6 @@ class Posts_TMP extends StatelessWidget {
       return Example_data().build_posts_linkedin();
     } else
       return Container();
-  }
-
-  Widget build_posts(Text socialname) {
-    return ListView(
-      children: <Widget>[
-        build_posts_template(
-            Text("username"),
-            Text(
-                "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
-            Text("fdfhbthnjtrnytn,yhnfgndfn"),
-            Text("https://pbs.twimg.com/media/DfkhrO1XUAEYkdw.jpg"),
-            Text("215"),
-            Text("87"),
-            Text("10")),
-        build_posts_template(
-            Text("username"),
-            Text(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWmYyuXiL768aS-87gaP_QvbFL4AkegqRBw&usqp=CAU"),
-            Text("fdfhbthnjtrnytn,yhnfgndfn"),
-            Text(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctlVINh5Xecdn8z254cNFVuvSdEKfpNVgCg&usqp=CAU"),
-            Text("3522"),
-            Text("857"),
-            Text("1520")),
-        build_posts_template(
-            Text("username"),
-            Text(
-                "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
-            Text("fdfhbthnjtrnytn,yhnfgndfn"),
-            Text(
-                "https://st2.depositphotos.com/3759967/5593/i/600/depositphotos_55936567-stock-photo-swirling-frosty-multi-colored-fractal.jpg"),
-            Text("25"),
-            Text("9"),
-            Text("10")),
-      ],
-    );
   }
 
   @override

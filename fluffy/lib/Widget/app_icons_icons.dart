@@ -28,6 +28,7 @@ class AppIcons {
 
   static const _kFontFam = 'AppIcons';
 
+  // SOCIAL NETWORKS ICONS
   static const IconData instagram = IconData(0xf16d, fontFamily: _kFontFam);
   static const IconData twitter = IconData(0xf309, fontFamily: _kFontFam);
   static const IconData facebook = IconData(0xf30e, fontFamily: _kFontFam);

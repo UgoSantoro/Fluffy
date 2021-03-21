@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class User_Profile_TMP extends StatelessWidget {
+  //TEXT TEMPLATE --> PROFILE
   Widget build_infoprofile_text(Text itemname, Text itemvalue) {
     return Container(
       child: Align(
@@ -15,6 +16,7 @@ class User_Profile_TMP extends StatelessWidget {
     );
   }
 
+  //IMAGE TEMPLATE --> PROFILE
   Widget build_infoprofile_image(Text imagelink) {
     return Padding(
       padding: EdgeInsets.only(top: 15.0),
@@ -38,6 +40,7 @@ class User_Profile_TMP extends StatelessWidget {
     );
   }
 
+  // PROFILE DETAILS
   Widget build(BuildContext context) {
     return Container(
       //child: EdgeInsets.only(left: 40.0),

@@ -17,10 +17,10 @@ class Constants extends StatelessWidget {
   Color icon_photo_profile = new Color(0xFFFFFFFF);
   Color border_image = new Color(0xFFDADADA);
 
-  //USER PROFILE
+  //POST
   Color posts_color = new Color(0xFFE0E0E0);
 
-  //USER PROFILE
+  //BORDER TEMPLATE OF FRIENDS & SUBSCRIBERS
   Color friends_subscribers_border_color = new Color(0xFF0051FF);
 
   @override

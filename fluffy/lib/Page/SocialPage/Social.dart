@@ -6,6 +6,7 @@ import '../../Widget/SocialProfile_Template/friends_template.dart';
 import '../../Widget/SocialProfile_Template/subs_template.dart';
 
 class Page extends StatelessWidget {
+  //DETAILS OF SOCIAL NETWORKS --> (FRIENDS - SUBSCRIBERS - POSTS - PROFILE)
   const Page({Key key, this.elemtext}) : super(key: key);
   final Text elemtext;
   @override
@@ -53,6 +54,7 @@ class Page extends StatelessWidget {
   }
 }
 
+//FACEBOOK PAGE
 class FacebookPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -72,6 +74,7 @@ class FacebookPage extends StatelessWidget {
   }
 }
 
+//INSTAGRAM PAGE
 class InstagramPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -91,6 +94,7 @@ class InstagramPage extends StatelessWidget {
   }
 }
 
+//TWITTER PAGE
 class TwitterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -110,6 +114,7 @@ class TwitterPage extends StatelessWidget {
   }
 }
 
+//LINKEDIN PAGE
 class LinkedlnPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

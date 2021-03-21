@@ -14,6 +14,7 @@ class RecentPage extends StatefulWidget {
 }
 
 class _RecentPageState extends State<RecentPage> {
+  // Post Owner Profile Picture
   Widget build_posts_profile_image(Text imagelink) {
     return Container(
       width: 30,
@@ -42,6 +43,7 @@ class _RecentPageState extends State<RecentPage> {
     );
   }
 
+  // LIKES, COMMENTS & SHARE
   Widget build_postsdetails(Text itemtext, Icon icon) {
     return Expanded(
       child: Container(
@@ -74,6 +76,7 @@ class _RecentPageState extends State<RecentPage> {
     );
   }
 
+  // INFORMATION OF POST
   Widget build_posts_info(Text nameuser, Text userimage, Text postdesc,
       Text postimage, Text likes, Text comments, Text shares) {
     return Container(
@@ -136,6 +139,7 @@ class _RecentPageState extends State<RecentPage> {
     );
   }
 
+  // POSTS TEMPLATE
   Widget build_posts(Text nameuser, Text userimage, Text postdesc,
       Text postimage, Text likes, Text comments, Text shares) {
     return Container(
@@ -162,6 +166,8 @@ class _RecentPageState extends State<RecentPage> {
         child: Center(
           child: ListView(
             children: <Widget>[
+              ///////////////////////////////////////////////////////////
+              // EXAMPLE OF POSTS
               build_posts(
                   Text("username"),
                   Text(

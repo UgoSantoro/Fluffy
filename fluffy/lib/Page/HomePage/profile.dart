@@ -117,6 +117,7 @@ class _ProfilePageState extends State<ProfilePage> {
         });
   }
 
+  //Display Image selected or default icon
   Widget _checkimageprofile() {
     if (imageFile == null) {
       return Container(
@@ -149,6 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  //Display icon (Profile image bottom right)
   Widget _photoicon() {
     return Container(
       width: 50,
@@ -166,6 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  //Profile Image
   Widget _imageprofile(BuildContext context) {
     return Container(
       width: 250,
@@ -210,6 +213,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  // Social Networks Buttons
   Widget _socialcontainer(BuildContext context) {
     return Container(
       padding: new EdgeInsets.all(25.0),
@@ -244,6 +248,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  //Profile Page
   @override
   Widget build(BuildContext context) {
     _initImage(context);

@@ -8,6 +8,8 @@ class Subs_TMP extends StatelessWidget {
   final Text itemtext;
   final Text nameuser;
   final Text userimage;
+
+  // SUBSCRIBERS IMAGE
   Widget build_friends_profile_image(Text imagelink) {
     return Container(
       padding: EdgeInsets.only(left: 10.0),
@@ -39,6 +41,7 @@ class Subs_TMP extends StatelessWidget {
     );
   }
 
+  // SUBSCRIBERS TEMPLATE
   Widget buildFriends_template() {
     return Container(
       padding: EdgeInsets.only(left: 7.0, top: 14.0, right: 7.0),
@@ -81,6 +84,7 @@ class Subs_TMP extends StatelessWidget {
     );
   }
 
+  // CHECK SOCIAL NETWORK
   Widget build_social() {
     if (itemtext.data == "Facebook") {
       return Example_data().build_subs_facebook();
