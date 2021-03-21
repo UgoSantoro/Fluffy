@@ -1,7 +1,13 @@
 import '../../Model/Constants.dart';
 import 'package:flutter/material.dart';
+import '../../Model/Example_Data/example_data.dart';
 
-class Friends_Subs_TMP extends StatelessWidget {
+class Friends_TMP extends StatelessWidget {
+  const Friends_TMP({Key key, this.itemtext, this.nameuser, this.userimage})
+      : super(key: key);
+  final Text itemtext;
+  final Text nameuser;
+  final Text userimage;
   Widget build_friends_profile_image(Text imagelink) {
     return Container(
       padding: EdgeInsets.only(left: 10.0),
@@ -33,7 +39,7 @@ class Friends_Subs_TMP extends StatelessWidget {
     );
   }
 
-  Widget buildFriends_template(Text nameuser, Text userimage) {
+  Widget buildFriends_template() {
     return Container(
       padding: EdgeInsets.only(left: 7.0, top: 14.0, right: 7.0),
       child: Container(
@@ -50,7 +56,7 @@ class Friends_Subs_TMP extends StatelessWidget {
                 padding: EdgeInsets.only(left: 10.0),
                 child: Row(
                   children: <Widget>[
-                    build_friends_profile_image(Text(userimage.data)),
+                    build_friends_profile_image(userimage),
                     Container(
                       padding: EdgeInsets.only(left: 5.0),
                       child: Text(nameuser.data),
@@ -75,54 +81,21 @@ class Friends_Subs_TMP extends StatelessWidget {
     );
   }
 
-  @override
-  Widget buildfriends() {
-    return ListView(
-      children: <Widget>[
-        buildFriends_template(
-            Text("Test"),
-            Text(
-                "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg")),
-        buildFriends_template(
-            Text("Username"),
-            Text(
-                "https://img-19.ccm2.net/ppaPB1I48R0LInb9Z8QBoUqXqSQ=/480x335/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg")),
-        buildFriends_template(
-            Text("Sonic"),
-            Text(
-                "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw")),
-        buildFriends_template(
-            Text("Earth"),
-            Text(
-                "https://img.huffingtonpost.com/asset/5d724df83b0000683fd0abe1.png?cache=pokxgDhxmj&ops=scalefit_630_noupscale")),
-      ],
-    );
-  }
-
-  @override
-  Widget buildsubscribers() {
-    return ListView(
-      children: <Widget>[
-        buildFriends_template(
-            Text("Username"),
-            Text(
-                "https://img-19.ccm2.net/ppaPB1I48R0LInb9Z8QBoUqXqSQ=/480x335/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg")),
-        buildFriends_template(
-            Text("dragon-ball"),
-            Text(
-                "https://www.journaldugeek.com/content/uploads/2021/01/dragon-ball-4995675-1280-640x492.jpg")),
-        buildFriends_template(
-            Text("Sonic"),
-            Text(
-                "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw")),
-      ],
-    );
+  Widget build_social() {
+    if (itemtext.data == "Facebook") {
+      return Example_data().build_friends_facebook();
+    } else if (itemtext.data == "Instagram") {
+      return Example_data().build_friends_insta();
+    } else if (itemtext.data == "Twitter") {
+      return Example_data().build_friends_twitter();
+    } else if (itemtext.data == "LinkedIn") {
+      return Example_data().build_friends_linkedin();
+    } else
+      return Container();
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[],
-    );
+    return Container();
   }
 }

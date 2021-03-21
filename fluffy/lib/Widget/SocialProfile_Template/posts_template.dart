@@ -1,7 +1,10 @@
 import '../../Model/Constants.dart';
 import 'package:flutter/material.dart';
+import '../../Model/Example_Data/example_data.dart';
 
 class Posts_TMP extends StatelessWidget {
+  const Posts_TMP({Key key, this.itemtext}) : super(key: key);
+  final Text itemtext;
   Widget build_posts_profile_image(Text imagelink) {
     return Container(
       width: 30,
@@ -143,7 +146,20 @@ class Posts_TMP extends StatelessWidget {
     );
   }
 
-  Widget build(BuildContext context) {
+  Widget build_social() {
+    if (itemtext.data == "Facebook") {
+      return Example_data().build_posts_facebook();
+    } else if (itemtext.data == "Instagram") {
+      return Example_data().build_posts_insta();
+    } else if (itemtext.data == "Twitter") {
+      return Example_data().build_posts_twitter();
+    } else if (itemtext.data == "LinkedIn") {
+      return Example_data().build_posts_linkedin();
+    } else
+      return Container();
+  }
+
+  Widget build_posts(Text socialname) {
     return ListView(
       children: <Widget>[
         build_posts_template(
@@ -177,5 +193,10 @@ class Posts_TMP extends StatelessWidget {
             Text("10")),
       ],
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

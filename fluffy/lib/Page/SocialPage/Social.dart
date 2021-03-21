@@ -1,10 +1,13 @@
 import '../../Model/Constants.dart';
-import '../../Widget/SocialProfile/posts_template.dart';
-import '../../Widget/SocialProfile/user_profile_template.dart';
+import '../../Widget/SocialProfile_Template/posts_template.dart';
+import '../../Widget/SocialProfile_Template/user_profile_template.dart';
 import 'package:flutter/material.dart';
-import '../../Widget/SocialProfile/friends_subs_template.dart';
+import '../../Widget/SocialProfile_Template/friends_template.dart';
+import '../../Widget/SocialProfile_Template/subs_template.dart';
 
 class Page extends StatelessWidget {
+  const Page({Key key, this.elemtext}) : super(key: key);
+  final Text elemtext;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -35,9 +38,9 @@ class Page extends StatelessWidget {
                             color: Constants().login_app_color, width: 0.5))),
                 child: TabBarView(
                   children: <Widget>[
-                    Friends_Subs_TMP().buildfriends(),
-                    Friends_Subs_TMP().buildsubscribers(),
-                    Posts_TMP().build(context),
+                    Friends_TMP(itemtext: elemtext).build_social(),
+                    Subs_TMP(itemtext: elemtext).build_social(),
+                    Posts_TMP(itemtext: elemtext).build_social(),
                     User_Profile_TMP().build(context),
                   ],
                 ),
@@ -61,7 +64,7 @@ class FacebookPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
-            Page(),
+            Page(elemtext: Text("Facebook")),
           ],
         ),
       ),
@@ -80,7 +83,7 @@ class InstagramPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
-            Page(),
+            Page(elemtext: Text("Instagram")),
           ],
         ),
       ),
@@ -99,7 +102,7 @@ class TwitterPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
-            Page(),
+            Page(elemtext: Text("Twitter")),
           ],
         ),
       ),
@@ -112,13 +115,13 @@ class LinkedlnPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Linkedln"),
+        title: Text("LinkedIn"),
         backgroundColor: Constants().login_app_color,
       ),
       body: Center(
         child: Column(
           children: <Widget>[
-            Page(),
+            Page(elemtext: Text("LinkedIn")),
           ],
         ),
       ),
