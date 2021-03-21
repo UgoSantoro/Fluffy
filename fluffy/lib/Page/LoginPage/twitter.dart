@@ -36,7 +36,6 @@ class FluffyTwitterlogin {
 
   static void syncUserWithTwitter(
       TwitterLoginResult result, localuser.User user) async {
-    final token = result.status.index;
     user.twitter_accesstoken = result.session.token;
     user.twitter_refreshtoken = result.session.secret;
     user.active = true;

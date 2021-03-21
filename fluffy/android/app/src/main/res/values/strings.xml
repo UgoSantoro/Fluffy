@@ -3,4 +3,6 @@
     <string name="app_name">Fluffy</string>
     <string name="facebook_app_id">884595555442096</string>
     <string name="fb_login_protocol_scheme">fb884595555442096</string>
+    <string name="twitter_consumer_key" translatable="false">LeswfZrFfrRCwng6hLaufjWbi</string>
+  <string name="twitter_consumer_secret" translatable="false">TPhJRjdHF6h6jYUkRiDsd9smoBaIqyFc08sxB7X4C2NnvSWUpb</string>
 </resources>

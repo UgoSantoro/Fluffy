@@ -10,22 +10,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 //File Page Includ
 import '../../Widget/app_icons_icons.dart';
 import '../../Widget/socialButton.dart';
-import '../../Model/SocialAccount.dart' as localuser;
-import '../../Tools/LocalTools.dart';
 
-class ProfilePage extends StatefulWidget {
-  ProfilePage({Key key}) : super(key: key);
+class SelectImageWidget extends StatefulWidget {
+  SelectImageWidget({Key key}) : super(key: key);
+  SelectImageWidget _selectImageWidget = new SelectImageWidget();
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  SelectImageWidgetState createState() => SelectImageWidgetState();
+
+  Future<void> _showChoiceDialog(BuildContext context) {
+    return _selectImageWidget._showChoiceDialog(context);
+  }
 }
 
-class _ProfilePageState extends State<ProfilePage> {
-  localuser.User user;
-
-  _initUser(BuildContext context) async {
-    user = await Localtools().getCurrentUser();
-  }
-
+class SelectImageWidgetState extends State<SelectImageWidget> {
   //Image && Profile Selection
   File imageFile = File("");
   // check if local image exist and select it
@@ -166,7 +163,9 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _imageprofile(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
+    _initImage(context);
     return Container(
       width: 250,
       height: 250,
@@ -206,69 +205,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _socialcontainer(BuildContext context) {
-    return Container(
-      padding: new EdgeInsets.all(25.0),
-      child: Column(
-        children: <Widget>[
-          SocialButton(
-              itemcolor: Constants().facebook_color,
-              itemtext: Text("Facebook"),
-              icon: Icon(AppIcons.facebook,
-                  color: Constants().icon_photo_profile),
-              islogin: false),
-          SocialButton(
-              itemcolor: Constants().instagram_color,
-              itemtext: Text("Instagram"),
-              icon: Icon(AppIcons.instagram,
-                  color: Constants().icon_photo_profile),
-              islogin: false),
-          SocialButton(
-              itemcolor: Constants().twitter_color,
-              itemtext: Text("Twitter"),
-              icon:
-                  Icon(AppIcons.twitter, color: Constants().icon_photo_profile),
-              islogin: false),
-          SocialButton(
-              itemcolor: Constants().linkedin_color,
-              itemtext: Text("LinkedIn"),
-              icon: Icon(AppIcons.linkedin,
-                  color: Constants().icon_photo_profile),
-              islogin: false),
-        ],
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    _initImage(context);
-    _initUser(context);
-    return Scaffold(
-      body: Container(
-        padding: new EdgeInsets.all(50.0),
-        child: Center(
-          child: ListView(
-            children: <Widget>[
-              FlatButton(
-                padding: new EdgeInsets.all(25.0),
-                onPressed: () {
-                  _showChoiceDialog(context);
-                },
-                child: _imageprofile(context),
-              ),
-              Text(
-                (user != null) ? user.fullName() : "user name".toUpperCase(),
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-              ),
-              _socialcontainer(context),
-            ],
-          ),
-        ),
       ),
     );
   }

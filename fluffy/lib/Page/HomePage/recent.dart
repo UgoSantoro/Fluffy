@@ -158,9 +158,6 @@ class _RecentPageState extends State<RecentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Recent"),
-      ),
       body: Container(
         child: Center(
           child: ListView(
