@@ -9,10 +9,8 @@ import 'dart:io';
 import '../../Model/SocialAccount.dart' as localuser;
 import '../../Tools/LocalTools.dart';
 
-/*class FluffyFacebooklogin {
-  FluffyFacebooklogin() {}
-
-  static void createUserFacebook(
+class FluffyInstagramlogin {
+  static void createUserInstagram(
       FacebookLoginResult result, String userID) async {
     final token = result.accessToken.token;
     final graphResponse = await http.get('https://graph.facebook.com/v2'
@@ -29,7 +27,7 @@ import '../../Tools/LocalTools.dart';
     await Localtools().setCurrentUser(user);
   }
 
-  static void syncUserWithFacebook(
+  static void syncUserWithInstagram(
       FacebookLoginResult result, localuser.User user) async {
     final token = result.accessToken.token;
     final graphResponse = await http.get('https://graph.facebook.com/v2'
@@ -62,7 +60,7 @@ Future<Token> getToken(String appId, String appSecret) async {
     "grant_type": "authorization_code"
   });
   flutterWebviewPlugin.close();
-  return new Token.fromMap(JSON.decode(response.body));
+  return new Token.fromMap(json.decode(response.body));
 }
 
 Future<Stream<String>> _server() async {
@@ -98,4 +96,3 @@ class Token {
     profile_picture = json['user']['profile_picture'];
   }
 }
-*/

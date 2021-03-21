@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 import '../Page/HomePage/MyHomePage.dart';
 import '../Page/LoginPage/facebook.dart';
 import '../Page/LoginPage/twitter.dart';
+import '../Page/LoginPage/instagram.dart';
 import '../Model/SocialAccount.dart' as localuser;
 import '../Tools/LocalTools.dart';
 import '../Model/Constants.dart';
@@ -100,9 +101,18 @@ class SocialButton extends StatelessWidget {
   }
   //End Twitter
 
-  //Twitter
-  void _instagramLogin(BuildContext context) async {}
-  //End Twitter
+  //Instagram (Impossible / no access to auth api)
+  void _instagramLogin(BuildContext context) async {
+    await getToken("437039790940256", "1413a242065d67d25a991ef6332474e5")
+        .then((token) {
+      if (token != null) {
+        //_view.onLoginScuccess(token.access);
+      } else {
+        //_view.onLoginError('Error');
+      }
+    });
+  }
+  //End Instagram
 
   @override
   Widget build(BuildContext context) {

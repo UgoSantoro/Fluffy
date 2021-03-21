@@ -56,33 +56,17 @@ class LoginPage extends StatelessWidget {
           Container(
             height: 40,
           ),
-
           SocialButton(
               itemcolor: Constants().facebook_color,
               itemtext: Text("Facebook"),
               icon: Icon(AppIcons.facebook,
                   color: Constants().icon_photo_profile),
               islogin: true),
-
-          SocialButton(
-              itemcolor: Constants().instagram_color,
-              itemtext: Text("Instagram"),
-              icon: Icon(AppIcons.instagram,
-                  color: Constants().icon_photo_profile),
-              islogin: true),
-
           SocialButton(
               itemcolor: Constants().twitter_color,
               itemtext: Text("Twitter"),
               icon:
                   Icon(AppIcons.twitter, color: Constants().icon_photo_profile),
-              islogin: true),
-
-          SocialButton(
-              itemcolor: Constants().linkedin_color,
-              itemtext: Text("LinkedIn"),
-              icon: Icon(AppIcons.linkedin,
-                  color: Constants().icon_photo_profile),
               islogin: true),
         ],
       ),

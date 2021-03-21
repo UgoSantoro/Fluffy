@@ -226,22 +226,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Constants().icon_photo_profile),
               islogin: false),
           SocialButton(
-              itemcolor: Constants().instagram_color,
-              itemtext: Text("Instagram"),
-              icon: Icon(AppIcons.instagram,
-                  color: Constants().icon_photo_profile),
-              islogin: false),
-          SocialButton(
               itemcolor: Constants().twitter_color,
               itemtext: Text("Twitter"),
               icon:
                   Icon(AppIcons.twitter, color: Constants().icon_photo_profile),
-              islogin: false),
-          SocialButton(
-              itemcolor: Constants().linkedin_color,
-              itemtext: Text("LinkedIn"),
-              icon: Icon(AppIcons.linkedin,
-                  color: Constants().icon_photo_profile),
               islogin: false),
         ],
       ),

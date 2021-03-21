@@ -61,7 +61,7 @@ class FacebookPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Facebook"),
-        backgroundColor: Constants().login_app_color,
+        backgroundColor: Constants().facebook_color,
       ),
       body: Center(
         child: Column(
@@ -81,7 +81,7 @@ class InstagramPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Instagram"),
-        backgroundColor: Constants().login_app_color,
+        backgroundColor: Constants().instagram_color,
       ),
       body: Center(
         child: Column(
@@ -101,7 +101,7 @@ class TwitterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Twitter"),
-        backgroundColor: Constants().login_app_color,
+        backgroundColor: Constants().twitter_color,
       ),
       body: Center(
         child: Column(
