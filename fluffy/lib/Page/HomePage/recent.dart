@@ -1,9 +1,9 @@
 import 'package:fluffy/Page/PostPage/Detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+
 import '../../Model/Constants.dart';
 import '../../Model/Comment.dart';
-import '../../Widget/SocialProfile_template/comment_template.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class RecentPage extends StatefulWidget {
   RecentPage({Key key}) : super(key: key);

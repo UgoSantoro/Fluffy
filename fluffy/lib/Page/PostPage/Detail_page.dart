@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../Model/Example_Data/example_data.dart';
 import '../../Model/Constants.dart';
 import '../../Model/Comment.dart' as fluffycomment;
 import '../../Widget/SocialProfile_template/comment_template.dart';
@@ -287,7 +286,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(""),
+        title: nameuser,
         backgroundColor: Constants().login_app_color,
       ),
       body: Center(

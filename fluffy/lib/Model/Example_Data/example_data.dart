@@ -1,7 +1,5 @@
-import '../../Model/Constants.dart';
 import 'package:flutter/material.dart';
 import '../../Widget/SocialProfile_Template/posts_template.dart';
-import '../../Widget/SocialProfile_Template/user_profile_template.dart';
 import '../../Widget/SocialProfile_Template/friends_template.dart';
 import '../../Widget/SocialProfile_Template/subs_template.dart';
 import '../../Model/Comment.dart';
@@ -39,17 +37,18 @@ class Example_data extends StatelessWidget {
         Subs_TMP(
                 nameuser: Text("Sonic"),
                 userimage: Text(
-                    "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw"))
+                    "https://www.journaldugeek.com/content/uploads/2021/01/dragon-ball-4995675-1280-640x492.jpg"))
             .buildFriends_template(),
       ],
     );
   }
 
   @override
-  Widget build_posts_facebook() {
+  Widget build_posts_facebook(BuildContext context) {
     return ListView(
       children: <Widget>[
         Posts_TMP().build_posts_template(
+            context,
             Text("username"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
@@ -112,17 +111,18 @@ class Example_data extends StatelessWidget {
         Subs_TMP(
                 nameuser: Text("Sonic"),
                 userimage: Text(
-                    "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw"))
+                    "https://www.journaldugeek.com/content/uploads/2021/01/dragon-ball-4995675-1280-640x492.jpg"))
             .buildFriends_template(),
       ],
     );
   }
 
   @override
-  Widget build_posts_insta() {
+  Widget build_posts_insta(BuildContext context) {
     return ListView(
       children: <Widget>[
         Posts_TMP().build_posts_template(
+            context,
             Text("username"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
@@ -150,6 +150,7 @@ class Example_data extends StatelessWidget {
                   "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
             ]),
         Posts_TMP().build_posts_template(
+            context,
             Text("FFEFsdg"),
             Text(
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWmYyuXiL768aS-87gaP_QvbFL4AkegqRBw&usqp=CAU"),
@@ -198,7 +199,7 @@ class Example_data extends StatelessWidget {
         Friends_TMP(
                 nameuser: Text("Sonic"),
                 userimage: Text(
-                    "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw"))
+                    "https://www.journaldugeek.com/content/uploads/2021/01/dragon-ball-4995675-1280-640x492.jpg"))
             .buildFriends_template(),
         Friends_TMP(
                 nameuser: Text("Earth"),
@@ -226,17 +227,18 @@ class Example_data extends StatelessWidget {
         Subs_TMP(
                 nameuser: Text("Sonic"),
                 userimage: Text(
-                    "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw"))
+                    "https://www.journaldugeek.com/content/uploads/2021/01/dragon-ball-4995675-1280-640x492.jpg"))
             .buildFriends_template(),
       ],
     );
   }
 
   @override
-  Widget build_posts_twitter() {
+  Widget build_posts_twitter(BuildContext context) {
     return ListView(
       children: <Widget>[
         Posts_TMP().build_posts_template(
+            context,
             Text("y,yu,"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
@@ -263,6 +265,7 @@ class Example_data extends StatelessWidget {
                   "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
             ]),
         Posts_TMP().build_posts_template(
+            context,
             Text("username"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
@@ -312,7 +315,7 @@ class Example_data extends StatelessWidget {
         Friends_TMP(
                 nameuser: Text("Sonic"),
                 userimage: Text(
-                    "https://lh3.googleusercontent.com/proxy/Cb33B8xud63wCzTpUagr_qZTIjs-KJ-83MW5_SysXaWWc5ORkJIAkk96RZVyzly-8ghbud5lPupzfC7zDDP2Ww_W-y8_7DbMVbklSA4XsEfKoSr2bzw"))
+                    "https://www.journaldugeek.com/content/uploads/2021/01/dragon-ball-4995675-1280-640x492.jpg"))
             .buildFriends_template(),
         Friends_TMP(
                 nameuser: Text("Kishor Dobromil"),
@@ -347,10 +350,11 @@ class Example_data extends StatelessWidget {
   }
 
   @override
-  Widget build_posts_linkedin() {
+  Widget build_posts_linkedin(BuildContext context) {
     return ListView(
       children: <Widget>[
         Posts_TMP().build_posts_template(
+            context,
             Text("y,yu,"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
@@ -377,6 +381,7 @@ class Example_data extends StatelessWidget {
                   "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
             ]),
         Posts_TMP().build_posts_template(
+            context,
             Text("username"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),

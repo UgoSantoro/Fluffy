@@ -14,16 +14,16 @@ class User {
 
   //Profil Image
   String profilePictureURL;
-  String facebook_profilePictureURL;
-  String twitter_profilePictureURL;
+  String facebookprofilePictureURL;
+  String twitterprofilePictureURL;
   String linkedin_profilePictureURL;
 
   //Social Network Access & Refresh Token (if exist and user connect to the corresponding social network)
-  String facebook_accesstoken;
-  String facebook_refreshtoken;
+  String facebookaccesstoken;
+  String facebookrefreshtoken;
 
-  String twitter_accesstoken;
-  String twitter_refreshtoken;
+  String twitteraccesstoken;
+  String twitterrefreshtoken;
 
   String linkedin_accesstoken;
   String linkedin_refreshtoken;
@@ -42,14 +42,14 @@ class User {
       this.selected = false,
       lastOnlineTimestamp,
       this.userID = '',
-      this.facebook_accesstoken = '',
-      this.facebook_refreshtoken = '',
-      this.twitter_accesstoken = '',
-      this.twitter_refreshtoken = '',
+      this.facebookaccesstoken = '',
+      this.facebookrefreshtoken = '',
+      this.twitteraccesstoken = '',
+      this.twitterrefreshtoken = '',
       this.linkedin_accesstoken = '',
       this.linkedin_refreshtoken = '',
-      this.facebook_profilePictureURL = '',
-      this.twitter_profilePictureURL = '',
+      this.facebookprofilePictureURL = '',
+      this.twitterprofilePictureURL = '',
       this.profilePictureURL = ''})
       : this.appIdentifier = 'Flutter Login Screen ${Platform.operatingSystem}';
 
@@ -65,13 +65,12 @@ class User {
         firstName: parsedJson['firstName'] ?? '',
         lastName: parsedJson['lastName'] ?? '',
         active: parsedJson['active'] ?? false,
-        facebook_accesstoken: parsedJson['facebook_accesstoken'] ?? '',
-        twitter_accesstoken: parsedJson['twitter_accesstoken'] ?? '',
+        facebookaccesstoken: parsedJson['facebookaccesstoken'] ?? '',
+        twitteraccesstoken: parsedJson['twitteraccesstoken'] ?? '',
         linkedin_accesstoken: parsedJson['linkedin_accesstoken'] ?? '',
-        facebook_profilePictureURL:
-            parsedJson['facebook_profilePictureURL'] ?? '',
-        twitter_profilePictureURL:
-            parsedJson['twitter_profilePictureURL'] ?? '',
+        facebookprofilePictureURL:
+            parsedJson['facebookprofilePictureURL'] ?? '',
+        twitterprofilePictureURL: parsedJson['twitterprofilePictureURL'] ?? '',
         phoneNumber: parsedJson['phoneNumber'] ?? '',
         userID: parsedJson['id'] ?? parsedJson['userID'] ?? '',
         profilePictureURL: parsedJson['profilePictureURL'] ?? '');
@@ -85,11 +84,11 @@ class User {
       'lastName': this.lastName,
       'phoneNumber': this.phoneNumber,
       'id': this.userID,
-      'facebook_accesstoken': this.facebook_accesstoken,
-      'twitter_accesstoken': this.twitter_accesstoken,
+      'facebookaccesstoken': this.facebookaccesstoken,
+      'twitteraccesstoken': this.twitteraccesstoken,
       'linkedin_accesstoken': this.linkedin_accesstoken,
-      'facebook_profilePictureURL': this.facebook_profilePictureURL,
-      'twitter_profilePictureURL': this.twitter_profilePictureURL,
+      'facebookprofilePictureURL': this.facebookprofilePictureURL,
+      'twitterprofilePictureURL': this.twitterprofilePictureURL,
       'active': this.active,
       'profilePictureURL': this.profilePictureURL,
       'appIdentifier': this.appIdentifier

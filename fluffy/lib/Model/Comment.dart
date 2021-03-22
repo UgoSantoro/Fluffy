@@ -1,5 +1,3 @@
-import 'dart:io';
-
 class Comment {
   String username;
   String text;

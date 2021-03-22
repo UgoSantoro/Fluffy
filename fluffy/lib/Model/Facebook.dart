@@ -1,5 +1,3 @@
-import 'dart:io';
-
 class FacebookInfo {
   String userId;
   String description;

@@ -26,7 +26,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   //Image && Profile Selection
-  File imageFile = File("");
+  File imageFile;
   // check if local image exist and select it
   _initImage(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

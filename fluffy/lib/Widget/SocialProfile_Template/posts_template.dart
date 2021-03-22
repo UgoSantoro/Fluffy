@@ -9,8 +9,6 @@ class Posts_TMP extends StatelessWidget {
   const Posts_TMP({Key key, this.itemtext}) : super(key: key);
   final Text itemtext;
 
-  static BuildContext _context;
-
   //USER IMAGE POST
   Widget build_posts_profile_image(Text imagelink) {
     return Container(
@@ -145,6 +143,7 @@ class Posts_TMP extends StatelessWidget {
 
   // POSTS TEMPLATE
   Widget build_posts_template(
+      BuildContext context,
       Text nameuser,
       Text userimage,
       Text postdesc,
@@ -171,7 +170,7 @@ class Posts_TMP extends StatelessWidget {
       ),
       onTap: () {
         Navigator.push(
-            _context,
+            context,
             MaterialPageRoute(
                 builder: (context) => DetailPage(
                       nameuser: nameuser,
@@ -187,23 +186,17 @@ class Posts_TMP extends StatelessWidget {
     );
   }
 
-  // CHECK SOCIAL NETWORK
-  Widget build_social() {
-    if (itemtext.data == "Facebook") {
-      return Example_data().build_posts_facebook();
-    } else if (itemtext.data == "Instagram") {
-      return Example_data().build_posts_insta();
-    } else if (itemtext.data == "Twitter") {
-      return Example_data().build_posts_twitter();
-    } else if (itemtext.data == "LinkedIn") {
-      return Example_data().build_posts_linkedin();
-    } else
-      return Container();
-  }
-
   @override
   Widget build(BuildContext context) {
-    _context = context;
-    return Container();
+    if (itemtext.data == "Facebook") {
+      return Example_data().build_posts_facebook(context);
+    } else if (itemtext.data == "Instagram") {
+      return Example_data().build_posts_insta(context);
+    } else if (itemtext.data == "Twitter") {
+      return Example_data().build_posts_twitter(context);
+    } else if (itemtext.data == "LinkedIn") {
+      return Example_data().build_posts_linkedin(context);
+    } else
+      return Container();
   }
 }

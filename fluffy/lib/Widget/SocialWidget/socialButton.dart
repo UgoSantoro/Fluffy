@@ -129,21 +129,21 @@ class SocialButton extends StatelessWidget {
           localuser.User user = await Localtools().getCurrentUser();
 
           if (itemtext.data == "Facebook") {
-            if (user == null || user.facebook_accesstoken == "") {
+            if (user == null || user.facebookaccesstoken == "") {
               _loginFacebook(context);
             } else {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => FacebookPage()));
             }
           } else if (itemtext.data == "Instagram") {
-            if (user == null || user.twitter_accesstoken == "") {
+            if (user == null || user.twitteraccesstoken == "") {
               _instagramLogin(context);
             } else {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => InstagramPage()));
             }
           } else if (itemtext.data == "Twitter") {
-            if (user == null || user.twitter_accesstoken == "") {
+            if (user == null || user.twitteraccesstoken == "") {
               _twitterLogin(context);
             } else {
               Navigator.push(context,

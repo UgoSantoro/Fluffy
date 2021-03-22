@@ -8,8 +8,6 @@ import '../../Tools/LocalTools.dart';
 
 // Create User with Facebook login or Sync Existing User With Facebook Data
 class FluffyFacebooklogin {
-  FluffyFacebooklogin() {}
-
   // Create a new User with Facebook credidentials & User Info
   static Future<localuser.User> createUserFacebook(
       FacebookLoginResult result, String userID) async {
@@ -21,7 +19,7 @@ class FluffyFacebooklogin {
         firstName: profile['first_name'],
         lastName: profile['last_name'],
         email: profile['email'],
-        facebook_accesstoken: token,
+        facebookaccesstoken: token,
         profilePictureURL: profile['picture']['data']['url'],
         active: true,
         userID: userID);
@@ -35,10 +33,10 @@ class FluffyFacebooklogin {
     final graphResponse = await http.get('https://graph.facebook.com/v2'
         '.12/me?fields=name,first_name,last_name,email,picture.type(large)&access_token=$token');
     final profile = json.decode(graphResponse.body);
-    user.facebook_profilePictureURL = profile['picture']['data']['url'];
+    user.facebookprofilePictureURL = profile['picture']['data']['url'];
     user.firstName = profile['first_name'];
     user.lastName = profile['last_name'];
-    user.facebook_accesstoken = token;
+    user.facebookaccesstoken = token;
     user.email = profile['email'];
     user.active = true;
 

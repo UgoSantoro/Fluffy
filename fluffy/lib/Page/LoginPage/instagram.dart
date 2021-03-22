@@ -20,7 +20,7 @@ class FluffyInstagramlogin {
         firstName: profile['first_name'],
         lastName: profile['last_name'],
         email: profile['email'],
-        facebook_accesstoken: token,
+        facebookaccesstoken: token,
         profilePictureURL: profile['picture']['data']['url'],
         active: true,
         userID: userID);
@@ -36,7 +36,7 @@ class FluffyInstagramlogin {
     user.profilePictureURL = profile['picture']['data']['url'];
     user.firstName = profile['first_name'];
     user.lastName = profile['last_name'];
-    user.facebook_accesstoken = token;
+    user.facebookaccesstoken = token;
     user.email = profile['email'];
     user.active = true;
 

@@ -43,7 +43,7 @@ class Page extends StatelessWidget {
                   children: <Widget>[
                     Friends_TMP(itemtext: elemtext).build_social(),
                     Subs_TMP(itemtext: elemtext).build_social(),
-                    Posts_TMP(itemtext: elemtext).build_social(),
+                    Posts_TMP(itemtext: elemtext),
                     User_Profile_TMP(itemtext: elemtext).build(context),
                   ],
                 ),
