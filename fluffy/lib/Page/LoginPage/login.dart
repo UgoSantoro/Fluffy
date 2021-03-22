@@ -1,13 +1,15 @@
-import '../../Model/Constants.dart';
 import 'package:flutter/material.dart';
 
 //File Page Includ
+import '../../Model/Constants.dart';
 import '../../Widget/app_icons_icons.dart';
-import '../../Widget/socialButton.dart';
+import '../../Widget/SocialWidget/socialButton.dart';
 
+// Login Page (Serve as first Page for the first session)
 class LoginPage extends StatelessWidget {
   BuildContext _context;
 
+  // Show Message in case of error (Not Use)
   Future<void> _showMessage(String message) {
     return showDialog<void>(
       context: _context,
@@ -62,6 +64,7 @@ class LoginPage extends StatelessWidget {
               icon: Icon(AppIcons.facebook,
                   color: Constants().icon_photo_profile),
               islogin: true),
+          SizedBox(height: 30),
           SocialButton(
               itemcolor: Constants().twitter_color,
               itemtext: Text("Twitter"),

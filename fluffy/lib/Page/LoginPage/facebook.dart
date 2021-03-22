@@ -6,10 +6,12 @@ import 'package:http/http.dart' as http;
 import '../../Model/SocialAccount.dart' as localuser;
 import '../../Tools/LocalTools.dart';
 
+// Create User with Facebook login or Sync Existing User With Facebook Data
 class FluffyFacebooklogin {
   FluffyFacebooklogin() {}
 
-  static void createUserFacebook(
+  // Create a new User with Facebook credidentials & User Info
+  static Future<localuser.User> createUserFacebook(
       FacebookLoginResult result, String userID) async {
     final token = result.accessToken.token;
     final graphResponse = await http.get('https://graph.facebook.com/v2'
@@ -23,22 +25,23 @@ class FluffyFacebooklogin {
         profilePictureURL: profile['picture']['data']['url'],
         active: true,
         userID: userID);
-    await Localtools().setCurrentUser(user);
+    return await Localtools().setCurrentUser(user);
   }
 
-  static void syncUserWithFacebook(
+  // Sync existing User with Facebook credidentials & User Info
+  static Future<localuser.User> syncUserWithFacebook(
       FacebookLoginResult result, localuser.User user) async {
     final token = result.accessToken.token;
     final graphResponse = await http.get('https://graph.facebook.com/v2'
         '.12/me?fields=name,first_name,last_name,email,picture.type(large)&access_token=$token');
     final profile = json.decode(graphResponse.body);
-    user.profilePictureURL = profile['picture']['data']['url'];
+    user.facebook_profilePictureURL = profile['picture']['data']['url'];
     user.firstName = profile['first_name'];
     user.lastName = profile['last_name'];
     user.facebook_accesstoken = token;
     user.email = profile['email'];
     user.active = true;
 
-    await Localtools().setCurrentUser(user);
+    return await Localtools().setCurrentUser(user);
   }
 }

@@ -9,6 +9,7 @@ import '../../Tools/LocalTools.dart';
 import './Login.dart';
 import '../../Model/SocialAccount.dart' as Social;
 
+// Check if user is already log (First check with firebase & second locally)
 class LoginPending extends StatefulWidget {
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
@@ -20,6 +21,7 @@ class LoginPending extends StatefulWidget {
 class LoginPendingState extends State<LoginPending> {
   BuildContext _context;
 
+  // Finish loading Data & check if User exist and pass login page
   Future hasFinishedOnBoarding() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 

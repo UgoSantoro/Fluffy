@@ -3,14 +3,15 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 //File Page Includ
-import '../Page/HomePage/MyHomePage.dart';
-import '../Page/LoginPage/facebook.dart';
-import '../Page/LoginPage/twitter.dart';
-import '../Page/LoginPage/instagram.dart';
-import '../Model/SocialAccount.dart' as localuser;
-import '../Tools/LocalTools.dart';
-import '../Model/Constants.dart';
-import '../Page/SocialPage/Social.dart';
+import '../../Page/HomePage/MyHomePage.dart';
+import '../../Page/LoginPage/facebook.dart';
+import '../../Page/LoginPage/twitter.dart';
+import '../../Page/LoginPage/instagram.dart';
+import '../../Model/SocialAccount.dart' as localuser;
+import '../../Tools/LocalTools.dart';
+import '../../Model/Constants.dart';
+import '../../Page/SocialPage/Social.dart';
+import '../../main.dart';
 
 class SocialButton extends StatelessWidget {
   const SocialButton(
@@ -22,7 +23,7 @@ class SocialButton extends StatelessWidget {
   final bool islogin;
   static final FacebookLogin facebookSignIn = new FacebookLogin();
 
-  //Facebook
+  //Facebook Login
   void _loginFacebook(BuildContext context) async {
     final facebookLogin = FacebookLogin();
     final result = await facebookLogin.logIn(['email']);
@@ -34,10 +35,12 @@ class SocialButton extends StatelessWidget {
             .then((auth.UserCredential authResult) async {
           localuser.User user = await Localtools().getCurrentUser();
           if (user == null) {
-            FluffyFacebooklogin.createUserFacebook(result, authResult.user.uid);
+            user = await FluffyFacebooklogin.createUserFacebook(
+                result, authResult.user.uid);
           } else {
-            FluffyFacebooklogin.syncUserWithFacebook(result, user);
+            user = await FluffyFacebooklogin.syncUserWithFacebook(result, user);
           }
+          MyAppState.currentUser = user;
           if (islogin) {
             Navigator.pushReplacement(
               context,
@@ -59,7 +62,7 @@ class SocialButton extends StatelessWidget {
   }
   //End Facebook
 
-  //Twitter
+  //Twitter Login
   void _twitterLogin(BuildContext context) async {
     String newMessage;
     var twitterLogin = new TwitterLogin(
@@ -74,10 +77,12 @@ class SocialButton extends StatelessWidget {
 
         localuser.User user = await Localtools().getCurrentUser();
         if (user == null) {
-          FluffyTwitterlogin.createUserTwitter(result, result.session.userId);
+          user = await FluffyTwitterlogin.createUserTwitter(
+              result, result.session.userId);
         } else {
-          FluffyTwitterlogin.syncUserWithTwitter(result, user);
+          user = await FluffyTwitterlogin.syncUserWithTwitter(result, user);
         }
+        MyAppState.currentUser = user;
         if (islogin) {
           Navigator.pushReplacement(
             context,
@@ -114,6 +119,7 @@ class SocialButton extends StatelessWidget {
   }
   //End Instagram
 
+  //Build the main Login Buttons widget
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -161,7 +167,7 @@ class SocialButton extends StatelessWidget {
         color: itemcolor,
         child: Container(
           width: 250,
-          height: 35,
+          height: 50,
           child: Stack(
             children: <Widget>[
               Align(

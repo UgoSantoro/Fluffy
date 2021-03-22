@@ -1,10 +1,12 @@
 import 'dart:convert';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
+//File Includ
 import '../Model/SocialAccount.dart';
 
+// Manage User Info with Shared Preferences
 class Localtools {
+  // Get Locally Saved User Info
   Future<User> getCurrentUser() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -19,6 +21,7 @@ class Localtools {
     }
   }
 
+  // Set Local User Info
   Future<User> setCurrentUser(User user) async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.setString("current_user", jsonEncode(user)).then((document) {

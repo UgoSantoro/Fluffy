@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
+//File Includ
 import '../../Model/Constants.dart';
 import '../../Widget/SocialProfile_Template/posts_template.dart';
 import '../../Widget/SocialProfile_Template/user_profile_template.dart';
-import 'package:flutter/material.dart';
 import '../../Widget/SocialProfile_Template/friends_template.dart';
 import '../../Widget/SocialProfile_Template/subs_template.dart';
 
@@ -42,7 +44,7 @@ class Page extends StatelessWidget {
                     Friends_TMP(itemtext: elemtext).build_social(),
                     Subs_TMP(itemtext: elemtext).build_social(),
                     Posts_TMP(itemtext: elemtext).build_social(),
-                    User_Profile_TMP().build(context),
+                    User_Profile_TMP(itemtext: elemtext).build(context),
                   ],
                 ),
               )
