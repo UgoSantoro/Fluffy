@@ -4,6 +4,7 @@ import '../../Widget/SocialProfile_Template/posts_template.dart';
 import '../../Widget/SocialProfile_Template/user_profile_template.dart';
 import '../../Widget/SocialProfile_Template/friends_template.dart';
 import '../../Widget/SocialProfile_Template/subs_template.dart';
+import '../../Model/Comment.dart';
 
 class Example_data extends StatelessWidget {
   //////////////////////////////////////////////////////////////////////
@@ -54,10 +55,27 @@ class Example_data extends StatelessWidget {
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
             Text(
                 "dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It"),
-            Text("https://pbs.twimg.com/media/DfkhrO1XUAEYkdw.jpg"),
+            [
+              Text(
+                  "https://static.vecteezy.com/ti/vecteur-libre/p3/246312-mountain-lake-sunset-landscape-vue-a-la-premiere-personne-gratuit-vectoriel.jpg"),
+              Text(
+                  "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+              Text(
+                  "https://www.lense.fr/wp-content/uploads/2020/12/International-Landscape-Photographer-Year-PhotographER-1st-KelvinYuen-2.jpg"),
+            ],
             Text("215"),
             Text("87"),
-            Text("10")),
+            Text("10"),
+            [
+              Comment("bernard", "woaw",
+                  "https://i.pinimg.com/originals/95/c4/65/95c4654db07456e6b9a3640253cd76a9.jpg"),
+              Comment("Elon", "such beautiful view",
+                  "https://www.presse-citron.net/app/uploads/2019/10/elonmusk-e1611101293534.jpg"),
+              Comment("Gaby", "must be cold to be there...",
+                  "https://www.nautiljon.com/images/perso/00/22/gaby_braun_19822.jpg"),
+              Comment("Zavala", "Next Vacantion for me x)",
+                  "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
+            ]),
       ],
     );
   }
@@ -110,21 +128,53 @@ class Example_data extends StatelessWidget {
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
             Text(
                 "orem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look"),
-            Text(
-                "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+            [
+              Text(
+                  "https://static.vecteezy.com/ti/vecteur-libre/p3/246312-mountain-lake-sunset-landscape-vue-a-la-premiere-personne-gratuit-vectoriel.jpg"),
+              Text(
+                  "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+              Text(
+                  "https://www.lense.fr/wp-content/uploads/2020/12/International-Landscape-Photographer-Year-PhotographER-1st-KelvinYuen-2.jpg"),
+            ],
             Text("582"),
             Text("5"),
-            Text("10")),
+            Text("10"),
+            [
+              Comment("bernard", "woaw",
+                  "https://i.pinimg.com/originals/95/c4/65/95c4654db07456e6b9a3640253cd76a9.jpg"),
+              Comment("Elon", "crazy!!!",
+                  "https://www.presse-citron.net/app/uploads/2019/10/elonmusk-e1611101293534.jpg"),
+              Comment("Gaby", "must be cold to be there...",
+                  "https://www.nautiljon.com/images/perso/00/22/gaby_braun_19822.jpg"),
+              Comment("Zavala", "Next Vacantion for me x)",
+                  "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
+            ]),
         Posts_TMP().build_posts_template(
             Text("FFEFsdg"),
             Text(
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWmYyuXiL768aS-87gaP_QvbFL4AkegqRBw&usqp=CAU"),
             Text("ediufvbrdbrvredbvujrbfvdjbiyhuvuvuyhviv"),
-            Text(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctlVINh5Xecdn8z254cNFVuvSdEKfpNVgCg&usqp=CAU"),
+            [
+              Text(
+                  "https://static.vecteezy.com/ti/vecteur-libre/p3/246312-mountain-lake-sunset-landscape-vue-a-la-premiere-personne-gratuit-vectoriel.jpg"),
+              Text(
+                  "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+              Text(
+                  "https://www.lense.fr/wp-content/uploads/2020/12/International-Landscape-Photographer-Year-PhotographER-1st-KelvinYuen-2.jpg"),
+            ],
             Text("3522"),
             Text("857"),
-            Text("1520")),
+            Text("1520"),
+            [
+              Comment("bernard", "woaw",
+                  "https://i.pinimg.com/originals/95/c4/65/95c4654db07456e6b9a3640253cd76a9.jpg"),
+              Comment("Elon", "crazy!!!",
+                  "https://www.presse-citron.net/app/uploads/2019/10/elonmusk-e1611101293534.jpg"),
+              Comment("Gaby", "must be cold to be there...",
+                  "https://www.nautiljon.com/images/perso/00/22/gaby_braun_19822.jpg"),
+              Comment("Zavala", "Next Vacantion for me x)",
+                  "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
+            ]),
       ],
     );
   }
@@ -191,21 +241,54 @@ class Example_data extends StatelessWidget {
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
             Text("fdfhbthnjtrnytn,yhnfgndfn"),
-            Text("https://pbs.twimg.com/media/DfkhrO1XUAEYkdw.jpg"),
+            [
+              Text(
+                  "https://static.vecteezy.com/ti/vecteur-libre/p3/246312-mountain-lake-sunset-landscape-vue-a-la-premiere-personne-gratuit-vectoriel.jpg"),
+              Text(
+                  "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+              Text(
+                  "https://www.lense.fr/wp-content/uploads/2020/12/International-Landscape-Photographer-Year-PhotographER-1st-KelvinYuen-2.jpg"),
+            ],
             Text("215"),
             Text("87"),
-            Text("10")),
+            Text("10"),
+            [
+              Comment("bernard", "woaw",
+                  "https://i.pinimg.com/originals/95/c4/65/95c4654db07456e6b9a3640253cd76a9.jpg"),
+              Comment("Elon", "crazy!!!",
+                  "https://www.presse-citron.net/app/uploads/2019/10/elonmusk-e1611101293534.jpg"),
+              Comment("Gaby", "must be cold to be there...",
+                  "https://www.nautiljon.com/images/perso/00/22/gaby_braun_19822.jpg"),
+              Comment("Zavala", "Next Vacantion for me x)",
+                  "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
+            ]),
         Posts_TMP().build_posts_template(
             Text("username"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
             Text(
                 "fdbgh;iumoàmyhrhrergehrrgrggergergergergregregregregregrgrgregregn rtgregregreregergrere"),
-            Text(
-                "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+            [
+              Text(
+                  "https://static.vecteezy.com/ti/vecteur-libre/p3/246312-mountain-lake-sunset-landscape-vue-a-la-premiere-personne-gratuit-vectoriel.jpg"),
+              Text(
+                  "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+              Text(
+                  "https://www.lense.fr/wp-content/uploads/2020/12/International-Landscape-Photographer-Year-PhotographER-1st-KelvinYuen-2.jpg"),
+            ],
             Text("25"),
             Text("9"),
-            Text("10")),
+            Text("10"),
+            [
+              Comment("bernard", "woaw",
+                  "https://i.pinimg.com/originals/95/c4/65/95c4654db07456e6b9a3640253cd76a9.jpg"),
+              Comment("Elon", "crazy!!!",
+                  "https://www.presse-citron.net/app/uploads/2019/10/elonmusk-e1611101293534.jpg"),
+              Comment("Gaby", "must be cold to be there...",
+                  "https://www.nautiljon.com/images/perso/00/22/gaby_braun_19822.jpg"),
+              Comment("Zavala", "Next Vacantion for me x)",
+                  "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
+            ]),
       ],
     );
   }
@@ -272,21 +355,54 @@ class Example_data extends StatelessWidget {
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
             Text("fdfhbthnjtrnytn,yhnfgndfn"),
-            Text("https://pbs.twimg.com/media/DfkhrO1XUAEYkdw.jpg"),
+            [
+              Text(
+                  "https://static.vecteezy.com/ti/vecteur-libre/p3/246312-mountain-lake-sunset-landscape-vue-a-la-premiere-personne-gratuit-vectoriel.jpg"),
+              Text(
+                  "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+              Text(
+                  "https://www.lense.fr/wp-content/uploads/2020/12/International-Landscape-Photographer-Year-PhotographER-1st-KelvinYuen-2.jpg"),
+            ],
             Text("215"),
             Text("87"),
-            Text("10")),
+            Text("10"),
+            [
+              Comment("bernard", "woaw",
+                  "https://i.pinimg.com/originals/95/c4/65/95c4654db07456e6b9a3640253cd76a9.jpg"),
+              Comment("Elon", "crazy!!!",
+                  "https://www.presse-citron.net/app/uploads/2019/10/elonmusk-e1611101293534.jpg"),
+              Comment("Gaby", "must be cold to be there...",
+                  "https://www.nautiljon.com/images/perso/00/22/gaby_braun_19822.jpg"),
+              Comment("Zavala", "Next Vacantion for me x)",
+                  "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
+            ]),
         Posts_TMP().build_posts_template(
             Text("username"),
             Text(
                 "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"),
             Text(
                 "fdbgh;iumoàmyhrhrergehrrgrggergergergergregregregregregrgrgregregn rtgregregreregergrere"),
-            Text(
-                "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+            [
+              Text(
+                  "https://static.vecteezy.com/ti/vecteur-libre/p3/246312-mountain-lake-sunset-landscape-vue-a-la-premiere-personne-gratuit-vectoriel.jpg"),
+              Text(
+                  "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"),
+              Text(
+                  "https://www.lense.fr/wp-content/uploads/2020/12/International-Landscape-Photographer-Year-PhotographER-1st-KelvinYuen-2.jpg"),
+            ],
             Text("25"),
             Text("9"),
-            Text("10")),
+            Text("10"),
+            [
+              Comment("bernard", "woaw",
+                  "https://i.pinimg.com/originals/95/c4/65/95c4654db07456e6b9a3640253cd76a9.jpg"),
+              Comment("Elon", "crazy!!!",
+                  "https://www.presse-citron.net/app/uploads/2019/10/elonmusk-e1611101293534.jpg"),
+              Comment("Gaby", "must be cold to be there...",
+                  "https://www.nautiljon.com/images/perso/00/22/gaby_braun_19822.jpg"),
+              Comment("Zavala", "Next Vacantion for me x)",
+                  "https://media.altchar.com/prod/images/940_530/gm-6ddd714a-81e2-49e0-b2fa-1feac00c4095-zavala.JPG"),
+            ]),
       ],
     );
   }
