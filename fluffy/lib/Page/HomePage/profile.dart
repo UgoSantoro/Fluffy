@@ -1,15 +1,14 @@
-import '../../Model/Constants.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //File Page Includ
+import '../../Model/Constants.dart';
 import '../../Widget/app_icons_icons.dart';
-import '../../Widget/socialButton.dart';
+import '../../Widget/SocialWidget/socialButton.dart';
 import '../../Model/SocialAccount.dart' as localuser;
 import '../../Tools/LocalTools.dart';
 
@@ -52,6 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
+      imageCache.clear();
       Directory tempDir = await getApplicationDocumentsDirectory();
       String path = tempDir.path;
 
@@ -216,7 +216,7 @@ class _ProfilePageState extends State<ProfilePage> {
   // Social Networks Buttons
   Widget _socialcontainer(BuildContext context) {
     return Container(
-      padding: new EdgeInsets.all(25.0),
+      padding: new EdgeInsets.only(top: 100.0),
       child: Column(
         children: <Widget>[
           SocialButton(
@@ -225,6 +225,7 @@ class _ProfilePageState extends State<ProfilePage> {
               icon: Icon(AppIcons.facebook,
                   color: Constants().icon_photo_profile),
               islogin: false),
+          SizedBox(height: 20),
           SocialButton(
               itemcolor: Constants().twitter_color,
               itemtext: Text("Twitter"),
