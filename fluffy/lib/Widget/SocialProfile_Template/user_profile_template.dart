@@ -53,9 +53,13 @@ class User_Profile_TMP extends StatelessWidget {
         children: <Widget>[
           build_infoprofile_text(Text("Name: "), Text(User.fullName())),
           build_infoprofile_text(Text("Profile Image: "), Text("")),
-          build_infoprofile_image(Text((itemtext.data == "Facebook")
+          build_infoprofile_image(Text((itemtext.data == "Facebook" &&
+                  User.facebookprofilePictureURL != null &&
+                  User.facebookprofilePictureURL != "")
               ? User.facebookprofilePictureURL
-              : (itemtext.data == "Twitter")
+              : (itemtext.data == "Twitter" &&
+                      User.twitterprofilePictureURL != null &&
+                      User.twitterprofilePictureURL != "")
                   ? User.twitterprofilePictureURL
                   : "https://pbs.twimg.com/profile_images/1294348991023460354/-s8uaOOe_400x400.jpg")),
           build_infoprofile_text(Text("Birthday: "), Text("")),
